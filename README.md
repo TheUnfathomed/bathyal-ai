@@ -1,6 +1,6 @@
 ﻿# Bathyal AI
 
-Bathyal AI uses a production-oriented classification flow:
+Bathyal AI classification flow:
 
 1. Megalodon detects organisms.
 2. A frozen BioCLIP 2 encoder embeds each detection crop.
