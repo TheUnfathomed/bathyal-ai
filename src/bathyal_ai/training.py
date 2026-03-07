@@ -79,10 +79,10 @@ def train_classifier_head(
     criterion = torch.nn.CrossEntropyLoss(weight=class_weights, label_smoothing=config.label_smoothing)
     optimizer = torch.optim.AdamW(head.parameters(), lr=config.learning_rate, weight_decay=config.weight_decay)
 
-    train_tensor = torch.from_numpy(train_embeddings.astype(np.float32))
-    train_target_tensor = torch.from_numpy(train_targets.astype(np.int64))
-    val_tensor = torch.from_numpy(val_embeddings.astype(np.float32))
-    val_target_tensor = torch.from_numpy(val_targets.astype(np.int64))
+    train_tensor = torch.from_numpy(train_embeddings.astype(np.float32)).to(device)
+    train_target_tensor = torch.from_numpy(train_targets.astype(np.int64)).to(device)
+    val_tensor = torch.from_numpy(val_embeddings.astype(np.float32)).to(device)
+    val_target_tensor = torch.from_numpy(val_targets.astype(np.int64)).to(device)
 
     best_state = copy.deepcopy(head.state_dict())
     best_val_loss = float("inf")
@@ -91,27 +91,27 @@ def train_classifier_head(
 
     for epoch in range(config.epochs):
         head.train()
-        permutation = torch.randperm(len(train_target_tensor))
+        permutation = torch.randperm(len(train_target_tensor), device=device)
         batch_losses: list[float] = []
 
         for start in range(0, len(permutation), config.classifier_batch_size):
             batch_indices = permutation[start : start + config.classifier_batch_size]
-            batch_embeddings = train_tensor[batch_indices].to(device)
-            batch_targets = train_target_tensor[batch_indices].to(device)
+            batch_embeddings = train_tensor[batch_indices]
+            batch_targets = train_target_tensor[batch_indices]
 
             optimizer.zero_grad(set_to_none=True)
             logits = head(batch_embeddings)
             loss = criterion(logits, batch_targets)
             loss.backward()
             optimizer.step()
-            batch_losses.append(float(loss.detach().cpu().item()))
+            batch_losses.append(float(loss.item()))
 
         head.eval()
         with torch.inference_mode():
-            val_logits = head(val_tensor.to(device))
-            val_loss = F.cross_entropy(val_logits, val_target_tensor.to(device), weight=class_weights).item()
+            val_logits = head(val_tensor)
+            val_loss = F.cross_entropy(val_logits, val_target_tensor, weight=class_weights).item()
             val_predictions = val_logits.argmax(dim=1)
-            val_accuracy = float((val_predictions == val_target_tensor.to(device)).float().mean().item())
+            val_accuracy = float((val_predictions == val_target_tensor).float().mean().item())
 
         if val_loss + 1e-6 < best_val_loss:
             best_val_loss = val_loss

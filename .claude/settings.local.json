@@ -3,7 +3,13 @@
     "allow": [
       "Bash(pip install:*)",
       "Bash(nvidia-smi:*)",
-      "Bash(uv run:*)"
+      "Bash(uv run:*)",
+      "Bash(rm:*)",
+      "Bash(uv pip:*)",
+      "Bash(uv lock:*)",
+      "Bash(uv sync:*)",
+      "Bash(uv cache:*)",
+      "Bash(pip cache:*)"
     ]
   }
 }

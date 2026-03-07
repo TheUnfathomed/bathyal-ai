@@ -29,6 +29,8 @@ class PipelineConfig:
     margin_threshold: float | None = None
     centroid_threshold: float | None = None
     top_candidate_count: int | None = None
+    min_crop_size: int = 48
+    min_detector_confidence: float = 0.3
 
 
 def clamp_box(xyxy: list[float], width: int, height: int) -> tuple[int, int, int, int]:
@@ -188,7 +190,15 @@ def run_pipeline(config: PipelineConfig) -> dict[str, object]:
                 class_id = int(box.cls.item()) if box.cls is not None else -1
                 detector_label = lookup_detector_label(result.names, class_id)
 
+                if detector_confidence < config.min_detector_confidence:
+                    continue
+
                 clamped_box = clamp_box(xyxy, width=width, height=height)
+                crop_width = clamped_box[2] - clamped_box[0]
+                crop_height = clamped_box[3] - clamped_box[1]
+                if min(crop_width, crop_height) < config.min_crop_size:
+                    continue
+
                 crop = source_image.crop(clamped_box)
                 classification = classifier.classify(
                     crop,

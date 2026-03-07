@@ -62,6 +62,18 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Save each detection crop used for classification.",
     )
+    parser.add_argument(
+        "--min-crop-size",
+        type=int,
+        default=48,
+        help="Skip detections smaller than this on either side (pixels).",
+    )
+    parser.add_argument(
+        "--min-detector-confidence",
+        type=float,
+        default=0.3,
+        help="Skip detections below this detector confidence.",
+    )
     return parser
 
 
@@ -82,6 +94,8 @@ def main() -> None:
         margin_threshold=args.margin_threshold,
         centroid_threshold=args.centroid_threshold,
         top_candidate_count=args.top_candidates,
+        min_crop_size=args.min_crop_size,
+        min_detector_confidence=args.min_detector_confidence,
     )
     summary = run_pipeline(config)
     print(f"Run directory: {summary['run_dir']}")
