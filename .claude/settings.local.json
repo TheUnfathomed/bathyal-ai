@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install:*)",
+      "Bash(nvidia-smi:*)",
+      "Bash(uv run:*)"
+    ]
+  }
+}
