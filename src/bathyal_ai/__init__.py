@@ -15,3 +15,11 @@ __all__ = [
     "TrainingConfig",
     "train_classifier",
 ]
+
+try:
+    from .vlm_classification import VlmClassificationClient
+    from .vlm_detection import GeminiDetectionClient
+
+    __all__ += ["GeminiDetectionClient", "VlmClassificationClient"]
+except ImportError:
+    pass

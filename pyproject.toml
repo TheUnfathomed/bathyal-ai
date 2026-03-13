@@ -19,6 +19,14 @@ dependencies = [
     "ultralytics>=8.3.0",
 ]
 
+[project.optional-dependencies]
+vlm = [
+    "google-genai>=1.0.0",
+    "openai>=1.70.0",
+    "openai-agents>=0.10.0",
+    "pydantic>=2.0.0",
+]
+
 [project.scripts]
 bathyal-ai = "bathyal_ai.cli:main"
 bathyal-ai-eval = "bathyal_ai.eval_cli:main"

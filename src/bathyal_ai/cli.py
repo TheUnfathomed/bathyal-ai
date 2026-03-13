@@ -74,6 +74,28 @@ def build_parser() -> argparse.ArgumentParser:
         default=0.3,
         help="Skip detections below this detector confidence.",
     )
+    parser.add_argument(
+        "--vlm-detection-fallback",
+        action="store_true",
+        help="Use Gemini 3 Flash to detect organisms when Megalodon finds nothing. Requires GOOGLE_API_KEY.",
+    )
+    parser.add_argument(
+        "--vlm-classification-fallback",
+        action="store_true",
+        help="Use GPT-5.4 to identify species when BioCLIP confidence is low. Requires OPENAI_API_KEY.",
+    )
+    parser.add_argument(
+        "--vlm-classification-threshold",
+        type=float,
+        default=0.7,
+        help="BioCLIP top probability below which GPT-5.4 classification fallback triggers.",
+    )
+    parser.add_argument(
+        "--vlm-max-workers",
+        type=int,
+        default=4,
+        help="Thread pool size for concurrent VLM API calls.",
+    )
     return parser
 
 
@@ -96,11 +118,19 @@ def main() -> None:
         top_candidate_count=args.top_candidates,
         min_crop_size=args.min_crop_size,
         min_detector_confidence=args.min_detector_confidence,
+        vlm_detection_fallback=args.vlm_detection_fallback,
+        vlm_classification_fallback=args.vlm_classification_fallback,
+        vlm_classification_threshold=args.vlm_classification_threshold,
+        vlm_max_workers=args.vlm_max_workers,
     )
     summary = run_pipeline(config)
     print(f"Run directory: {summary['run_dir']}")
     print(f"Images processed: {summary['images_processed']}")
     print(f"Detections classified: {summary['detections_classified']}")
+    if summary.get("vlm_detections_added"):
+        print(f"VLM detection fallbacks: {summary['vlm_detections_added']}")
+    if summary.get("vlm_classifications_added"):
+        print(f"VLM classification fallbacks: {summary['vlm_classifications_added']}")
     if summary["json_outputs"]:
         print("Classification outputs:")
         for output in summary["json_outputs"]:
