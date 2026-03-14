@@ -90,21 +90,11 @@ class LoraMultiheadAttention(nn.Module):
         if "o" in targets:
             self.out_proj = LoraLinear(self.out_proj, config.rank, config.alpha)
 
-        self.q_proj.base.weight.requires_grad_(False)
-        self.k_proj.base.weight.requires_grad_(False)
-        self.v_proj.base.weight.requires_grad_(False)
-        self.out_proj.base.weight.requires_grad_(False) if isinstance(self.out_proj, LoraLinear) else self.out_proj.weight.requires_grad_(False)
-        if hasattr(self.q_proj, "base") and self.q_proj.base.bias is not None:
-            self.q_proj.base.bias.requires_grad_(False)
-        if hasattr(self.k_proj, "base") and self.k_proj.base.bias is not None:
-            self.k_proj.base.bias.requires_grad_(False)
-        if hasattr(self.v_proj, "base") and self.v_proj.base.bias is not None:
-            self.v_proj.base.bias.requires_grad_(False)
-        if isinstance(self.out_proj, LoraLinear):
-            if self.out_proj.base.bias is not None:
-                self.out_proj.base.bias.requires_grad_(False)
-        elif self.out_proj.bias is not None:
-            self.out_proj.bias.requires_grad_(False)
+        for proj in (self.q_proj, self.k_proj, self.v_proj, self.out_proj):
+            if not isinstance(proj, LoraLinear):
+                proj.weight.requires_grad_(False)
+                if proj.bias is not None:
+                    proj.bias.requires_grad_(False)
 
     def forward(
         self,
@@ -163,7 +153,7 @@ def apply_lora_to_vision_encoder(model: nn.Module, config: LoraConfig) -> list[n
 
 def lora_state_dict(model: nn.Module) -> dict[str, torch.Tensor]:
     return {
-        name: param.data.clone()
+        name: param.detach()
         for name, param in model.named_parameters()
         if "lora_a" in name or "lora_b" in name
     }
@@ -191,6 +181,7 @@ def merge_lora_weights(model: nn.Module) -> None:
         o_linear = lora_attn.out_proj.merge() if isinstance(lora_attn.out_proj, LoraLinear) else lora_attn.out_proj
 
         restored = nn.MultiheadAttention(embed_dim, num_heads, bias=q_linear.bias is not None)
+        restored = restored.to(q_linear.weight.device)
         with torch.no_grad():
             restored.in_proj_weight.copy_(torch.cat([q_linear.weight, k_linear.weight, v_linear.weight], dim=0))
             if restored.in_proj_bias is not None:
@@ -199,5 +190,4 @@ def merge_lora_weights(model: nn.Module) -> None:
             if restored.out_proj.bias is not None and o_linear.bias is not None:
                 restored.out_proj.bias.copy_(o_linear.bias)
 
-        restored = restored.to(q_linear.weight.device)
         block.attn = restored

@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import copy
 import json
 import math
 from dataclasses import dataclass, field
@@ -19,7 +18,8 @@ from torch.utils.data import DataLoader, Dataset
 from .augmentation import build_train_transform, build_val_transform, extract_normalize_params
 from .classifier import LinearClassifierHead, SpeciesClassifierBundle, ThresholdConfig
 from .data import IndexedDataset, LabeledExample, ensure_labels_subset, filter_dataset_by_min_examples, index_labeled_dataset, list_images
-from .lora import LoraConfig, apply_lora_to_vision_encoder, lora_state_dict, merge_lora_weights
+from .embeddings import BioClipEmbedder
+from .lora import LoraConfig, apply_lora_to_vision_encoder, load_lora_state_dict, lora_state_dict, merge_lora_weights
 from .training import build_centroids, compute_class_weights, encode_labels, fit_temperature, select_thresholds, set_seed
 
 
@@ -57,7 +57,7 @@ class FinetuneConfig:
 
 
 class SpeciesImageDataset(Dataset):
-    def __init__(self, dataset: IndexedDataset, label_to_index: dict[str, int], transform) -> None:
+    def __init__(self, dataset: IndexedDataset, label_to_index: dict[str, int] | None, transform) -> None:
         self.examples = dataset.examples
         self.label_to_index = label_to_index
         self.transform = transform
@@ -65,19 +65,14 @@ class SpeciesImageDataset(Dataset):
     def __len__(self) -> int:
         return len(self.examples)
 
-    def __getitem__(self, index: int) -> tuple[torch.Tensor, int]:
+    def __getitem__(self, index: int) -> tuple[torch.Tensor, int] | torch.Tensor:
         example = self.examples[index]
         with Image.open(example.path) as img:
             image = img.convert("RGB")
         tensor = self.transform(image)
-        target = self.label_to_index[example.label]
-        return tensor, target
-
-
-def _resolve_device(device: str) -> str:
-    if device != "auto":
-        return device
-    return "cuda" if torch.cuda.is_available() else "cpu"
+        if self.label_to_index is not None:
+            return tensor, self.label_to_index[example.label]
+        return tensor
 
 
 def _embed_dataset_through_model(
@@ -86,12 +81,13 @@ def _embed_dataset_through_model(
     transform,
     device: str,
     batch_size: int = 64,
+    num_workers: int = 2,
 ) -> np.ndarray:
     loader = DataLoader(
-        _EmbedDataset(dataset, transform),
+        SpeciesImageDataset(dataset, None, transform),
         batch_size=batch_size,
         shuffle=False,
-        num_workers=2,
+        num_workers=num_workers,
         pin_memory=device != "cpu",
     )
     all_embeddings: list[np.ndarray] = []
@@ -105,24 +101,9 @@ def _embed_dataset_through_model(
     return np.concatenate(all_embeddings, axis=0)
 
 
-class _EmbedDataset(Dataset):
-    def __init__(self, dataset: IndexedDataset, transform) -> None:
-        self.examples = dataset.examples
-        self.transform = transform
-
-    def __len__(self) -> int:
-        return len(self.examples)
-
-    def __getitem__(self, index: int) -> torch.Tensor:
-        example = self.examples[index]
-        with Image.open(example.path) as img:
-            image = img.convert("RGB")
-        return self.transform(image)
-
-
 def run_finetune(config: FinetuneConfig) -> dict[str, object]:
     set_seed(config.seed)
-    device = _resolve_device(config.device)
+    device = BioClipEmbedder._resolve_device(config.device)
 
     raw_train_dataset = index_labeled_dataset(config.train_dir)
     train_dataset = filter_dataset_by_min_examples(raw_train_dataset, config.min_examples_per_label)
@@ -212,8 +193,8 @@ def run_finetune(config: FinetuneConfig) -> dict[str, object]:
 
     best_val_accuracy = 0.0
     best_val_loss = float("inf")
-    best_model_state = copy.deepcopy(model.state_dict())
-    best_head_state = copy.deepcopy(head.state_dict())
+    best_lora_state = lora_state_dict(model)
+    best_head_state = {k: v.clone() for k, v in head.state_dict().items()}
     epochs_without_improvement = 0
     epochs_completed = 0
 
@@ -236,13 +217,9 @@ def run_finetune(config: FinetuneConfig) -> dict[str, object]:
                 logits = head(embeddings.float())
                 loss = criterion(logits, batch_targets)
 
-            if use_amp and amp_dtype == torch.float16:
-                scaler.scale(loss).backward()
-                scaler.step(optimizer)
-                scaler.update()
-            else:
-                loss.backward()
-                optimizer.step()
+            scaler.scale(loss).backward()
+            scaler.step(optimizer)
+            scaler.update()
 
             scheduler.step()
 
@@ -289,8 +266,8 @@ def run_finetune(config: FinetuneConfig) -> dict[str, object]:
         if val_accuracy > best_val_accuracy or (val_accuracy == best_val_accuracy and val_loss_avg < best_val_loss):
             best_val_accuracy = val_accuracy
             best_val_loss = val_loss_avg
-            best_model_state = copy.deepcopy(model.state_dict())
-            best_head_state = copy.deepcopy(head.state_dict())
+            best_lora_state = lora_state_dict(model)
+            best_head_state = {k: v.clone() for k, v in head.state_dict().items()}
             epochs_without_improvement = 0
         else:
             epochs_without_improvement += 1
@@ -298,7 +275,7 @@ def run_finetune(config: FinetuneConfig) -> dict[str, object]:
                 print(f"  Early stopping at epoch {epoch + 1}")
                 break
 
-    model.load_state_dict(best_model_state)
+    load_lora_state_dict(model, best_lora_state)
     head.load_state_dict(best_head_state)
     model.eval()
     head.eval()
@@ -333,14 +310,15 @@ def run_finetune(config: FinetuneConfig) -> dict[str, object]:
     }
 
     merge_lora_weights(model)
+    model.eval()
 
-    from .embeddings import BioClipEmbedder
-    embedder = BioClipEmbedder.__new__(BioClipEmbedder)
-    embedder.model_name = config.bioclip_model
-    embedder.device = device
-    embedder.batch_size = config.batch_size
-    embedder.model = model
-    embedder.preprocess = preprocess
+    embedder = BioClipEmbedder.from_model(
+        model_name=config.bioclip_model,
+        model=model,
+        preprocess=preprocess,
+        device=device,
+        batch_size=config.batch_size,
+    )
 
     bundle = SpeciesClassifierBundle(
         bioclip_model=config.bioclip_model,

@@ -177,14 +177,6 @@ def ingest_inaturalist(config: INaturalistIngestConfig) -> dict[str, object]:
                 except (URLError, ConnectionResetError, OSError):
                     continue
 
-                try:
-                    with Image.open(image_path) as img:
-                        width, height = img.size
-                    if min(width, height) < config.min_image_size:
-                        continue
-                except Exception:
-                    continue
-
                 crop_label = species_name if config.dataset_role == "known" else "unknown"
                 if config.dataset_role == "known":
                     split = existing_image_splits.get(
@@ -203,12 +195,16 @@ def ingest_inaturalist(config: INaturalistIngestConfig) -> dict[str, object]:
                 destination_name = f"inaturalist_{sanitize_filename_component(str(obs_id))}_{sanitize_filename_component(str(photo_id))}{extension}"
                 destination = destination_dir / destination_name
 
-                if not destination.exists():
-                    try:
-                        with Image.open(image_path) as img:
+                try:
+                    with Image.open(image_path) as img:
+                        width, height = img.size
+                        if min(width, height) < config.min_image_size:
+                            continue
+                        if not destination.exists():
                             img.convert("RGB").save(destination, format="JPEG", quality=95)
-                    except Exception:
-                        continue
+                except Exception as exc:
+                    print(f"    WARNING: Failed to process image {image_path}: {exc}")
+                    continue
 
                 record = {
                     "source": "inaturalist",
