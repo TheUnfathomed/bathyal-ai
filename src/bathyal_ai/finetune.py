@@ -54,6 +54,129 @@ class FinetuneConfig:
     )
     margin_thresholds: list[float] = field(default_factory=lambda: [0.0, 0.02, 0.05, 0.08, 0.1, 0.15, 0.2, 0.25])
     centroid_thresholds: list[float] = field(default_factory=lambda: [0.0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8])
+    resume_from: Path | None = None
+    resume_checkpoint: Path | None = None
+    checkpoint_every: int | None = None
+
+
+@dataclass(slots=True)
+class PriorRun:
+    labels: list[str]
+    lora_config: LoraConfig
+    lora_state: dict[str, torch.Tensor]
+    head_state: dict[str, torch.Tensor]
+    centroids: np.ndarray
+    bioclip_model: str
+    feature_dim: int
+
+
+def load_prior_run(resume_dir: Path) -> PriorRun:
+    required_files = ["metadata.json", "lora_weights.pt", "head.pt", "centroids.npy"]
+    missing = [f for f in required_files if not (resume_dir / f).exists()]
+    if missing:
+        raise FileNotFoundError(f"Prior run at {resume_dir} is missing: {', '.join(missing)}")
+
+    metadata = json.loads((resume_dir / "metadata.json").read_text(encoding="utf-8"))
+    lora_config = LoraConfig.from_dict(metadata.get("lora_config", {}))
+    lora_state = torch.load(resume_dir / "lora_weights.pt", map_location="cpu", weights_only=True)
+    head_data = torch.load(resume_dir / "head.pt", map_location="cpu", weights_only=True)
+    head_state = head_data["state_dict"]
+    centroids = np.load(resume_dir / "centroids.npy")
+
+    return PriorRun(
+        labels=metadata["labels"],
+        lora_config=lora_config,
+        lora_state=lora_state,
+        head_state=head_state,
+        centroids=centroids,
+        bioclip_model=metadata["bioclip_model"],
+        feature_dim=metadata["feature_dim"],
+    )
+
+
+def expand_head_for_new_labels(
+    prior_head_state: dict[str, torch.Tensor],
+    prior_labels: list[str],
+    merged_labels: list[str],
+    feature_dim: int,
+) -> dict[str, torch.Tensor]:
+    new_head = LinearClassifierHead(feature_dim=feature_dim, class_count=len(merged_labels))
+    new_state = new_head.state_dict()
+
+    prior_index = {label: i for i, label in enumerate(prior_labels)}
+    w_old = prior_head_state["linear.weight"]
+    b_old = prior_head_state["linear.bias"]
+
+    for j, label in enumerate(merged_labels):
+        if label in prior_index:
+            i = prior_index[label]
+            new_state["linear.weight"][j] = w_old[i]
+            new_state["linear.bias"][j] = b_old[i]
+
+    return new_state
+
+
+def build_centroids_with_prior(
+    train_embeddings: np.ndarray,
+    train_targets: np.ndarray,
+    class_count: int,
+    prior_centroids: np.ndarray,
+    prior_labels: list[str],
+    merged_labels: list[str],
+) -> np.ndarray:
+    prior_index = {label: i for i, label in enumerate(prior_labels)}
+    centroids: list[np.ndarray] = []
+    for class_idx in range(class_count):
+        class_embeddings = train_embeddings[train_targets == class_idx]
+        if len(class_embeddings) > 0:
+            centroid = class_embeddings.mean(axis=0)
+            norm = max(float(np.linalg.norm(centroid)), 1e-12)
+            centroids.append((centroid / norm).astype(np.float32))
+        else:
+            label = merged_labels[class_idx]
+            if label not in prior_index:
+                raise ValueError(f"Class '{label}' has no training embeddings and is not in the prior run")
+            old_idx = prior_index[label]
+            centroids.append(prior_centroids[old_idx])
+    return np.vstack(centroids)
+
+
+def save_checkpoint(
+    path: Path,
+    epoch: int,
+    model: nn.Module,
+    head: LinearClassifierHead,
+    optimizer: torch.optim.Optimizer,
+    scheduler: torch.optim.lr_scheduler.LRScheduler,
+    scaler: torch.amp.GradScaler,
+    best_val_accuracy: float,
+    best_val_loss: float,
+    best_lora_state: dict[str, torch.Tensor],
+    best_head_state: dict[str, torch.Tensor],
+    epochs_without_improvement: int,
+    labels: list[str],
+    bioclip_model: str,
+) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    torch.save({
+        "epoch": epoch,
+        "best_val_accuracy": best_val_accuracy,
+        "best_val_loss": best_val_loss,
+        "best_lora_state": best_lora_state,
+        "best_head_state": best_head_state,
+        "current_lora_state": lora_state_dict(model),
+        "current_head_state": {k: v.clone() for k, v in head.state_dict().items()},
+        "optimizer_state": optimizer.state_dict(),
+        "scheduler_state": scheduler.state_dict(),
+        "scaler_state": scaler.state_dict(),
+        "epochs_without_improvement": epochs_without_improvement,
+        "labels": labels,
+        "bioclip_model": bioclip_model,
+    }, path)
+
+
+def load_checkpoint(path: Path) -> dict[str, object]:
+    return torch.load(path, map_location="cpu", weights_only=True)
 
 
 class SpeciesImageDataset(Dataset):
@@ -112,13 +235,33 @@ def run_finetune(config: FinetuneConfig) -> dict[str, object]:
     dropped_train_labels = sorted(set(raw_train_dataset.labels) - set(train_dataset.labels))
 
     val_dataset = index_labeled_dataset(config.val_dir)
-    ensure_labels_subset(val_dataset, train_dataset.labels, "Validation dataset")
-
     unknown_paths = list_images(config.unknown_dir) if config.unknown_dir is not None else []
 
-    labels = train_dataset.labels
+    prior_run: PriorRun | None = None
+    retained_only_labels: list[str] = []
+    new_labels: list[str] = []
+
+    if config.resume_from is not None:
+        prior_run = load_prior_run(config.resume_from)
+        if config.bioclip_model != prior_run.bioclip_model:
+            raise ValueError(
+                f"BioCLIP model mismatch: current run uses '{config.bioclip_model}' "
+                f"but prior run used '{prior_run.bioclip_model}'"
+            )
+        labels = sorted(set(prior_run.labels) | set(train_dataset.labels))
+        retained_only_labels = sorted(set(prior_run.labels) - set(train_dataset.labels))
+        new_labels = sorted(set(train_dataset.labels) - set(prior_run.labels))
+        if retained_only_labels:
+            print(f"Retaining {len(retained_only_labels)} prior classes not in new training data")
+        if new_labels:
+            print(f"Adding {len(new_labels)} new classes")
+    else:
+        labels = train_dataset.labels
+
     label_to_index = {label: index for index, label in enumerate(labels)}
     class_count = len(labels)
+
+    ensure_labels_subset(val_dataset, labels, "Validation dataset")
 
     print(f"Training: {train_dataset.example_count} examples, {class_count} classes")
     print(f"Validation: {val_dataset.example_count} examples")
@@ -144,8 +287,19 @@ def run_finetune(config: FinetuneConfig) -> dict[str, object]:
     total_param_count = sum(p.numel() for p in model.parameters())
     print(f"LoRA params: {lora_param_count:,} / {total_param_count:,} total ({100 * lora_param_count / total_param_count:.2f}%)")
 
+    if prior_run is not None:
+        print("Loading prior LoRA weights...")
+        load_lora_state_dict(model, prior_run.lora_state)
+
     feature_dim = model.visual.proj.shape[1] if hasattr(model.visual, "proj") and model.visual.proj is not None else model.visual.transformer.width
     head = LinearClassifierHead(feature_dim=feature_dim, class_count=class_count).to(device)
+
+    if prior_run is not None:
+        expanded_state = expand_head_for_new_labels(
+            prior_run.head_state, prior_run.labels, labels, feature_dim,
+        )
+        head.load_state_dict(expanded_state)
+        head = head.to(device)
 
     train_ds = SpeciesImageDataset(train_dataset, label_to_index, train_transform)
     val_ds = SpeciesImageDataset(val_dataset, label_to_index, val_transform)
@@ -197,8 +351,29 @@ def run_finetune(config: FinetuneConfig) -> dict[str, object]:
     best_head_state = {k: v.clone() for k, v in head.state_dict().items()}
     epochs_without_improvement = 0
     epochs_completed = 0
+    start_epoch = 0
 
-    for epoch in range(config.epochs):
+    if config.resume_checkpoint is not None:
+        print(f"Resuming from checkpoint {config.resume_checkpoint}...")
+        ckpt = load_checkpoint(config.resume_checkpoint)
+        if ckpt["labels"] != labels:
+            raise ValueError("Checkpoint label set does not match current training labels")
+        if ckpt["bioclip_model"] != config.bioclip_model:
+            raise ValueError("Checkpoint BioCLIP model does not match current config")
+        load_lora_state_dict(model, ckpt["current_lora_state"])
+        head.load_state_dict(ckpt["current_head_state"])
+        optimizer.load_state_dict(ckpt["optimizer_state"])
+        scheduler.load_state_dict(ckpt["scheduler_state"])
+        scaler.load_state_dict(ckpt["scaler_state"])
+        start_epoch = ckpt["epoch"]
+        best_val_accuracy = ckpt["best_val_accuracy"]
+        best_val_loss = ckpt["best_val_loss"]
+        best_lora_state = ckpt["best_lora_state"]
+        best_head_state = ckpt["best_head_state"]
+        epochs_without_improvement = ckpt["epochs_without_improvement"]
+        print(f"  Resumed at epoch {start_epoch}, best_val_acc={best_val_accuracy:.3f}")
+
+    for epoch in range(start_epoch, config.epochs):
         model.train()
         head.train()
         epoch_loss = 0.0
@@ -263,7 +438,8 @@ def run_finetune(config: FinetuneConfig) -> dict[str, object]:
         )
 
         epochs_completed = epoch + 1
-        if val_accuracy > best_val_accuracy or (val_accuracy == best_val_accuracy and val_loss_avg < best_val_loss):
+        is_best = val_accuracy > best_val_accuracy or (val_accuracy == best_val_accuracy and val_loss_avg < best_val_loss)
+        if is_best:
             best_val_accuracy = val_accuracy
             best_val_loss = val_loss_avg
             best_lora_state = lora_state_dict(model)
@@ -274,6 +450,24 @@ def run_finetune(config: FinetuneConfig) -> dict[str, object]:
             if epochs_without_improvement >= config.early_stopping_patience:
                 print(f"  Early stopping at epoch {epoch + 1}")
                 break
+
+        if config.checkpoint_every is not None:
+            periodic = (epoch + 1) % config.checkpoint_every == 0
+            if periodic or is_best:
+                checkpoint_dir = config.output_dir / "checkpoints"
+                ckpt_args = dict(
+                    model=model, head=head, optimizer=optimizer, scheduler=scheduler,
+                    scaler=scaler, best_val_accuracy=best_val_accuracy,
+                    best_val_loss=best_val_loss, best_lora_state=best_lora_state,
+                    best_head_state=best_head_state,
+                    epochs_without_improvement=epochs_without_improvement,
+                    labels=labels, bioclip_model=config.bioclip_model,
+                )
+                primary_path = checkpoint_dir / f"checkpoint_epoch_{epoch + 1}.pt" if periodic else checkpoint_dir / "checkpoint_best.pt"
+                save_checkpoint(path=primary_path, epoch=epoch + 1, **ckpt_args)
+                if periodic and is_best:
+                    import shutil
+                    shutil.copy2(primary_path, checkpoint_dir / "checkpoint_best.pt")
 
     load_lora_state_dict(model, best_lora_state)
     head.load_state_dict(best_head_state)
@@ -299,7 +493,13 @@ def run_finetune(config: FinetuneConfig) -> dict[str, object]:
     temperature = fit_temperature(head, val_embeddings, val_targets, device)
 
     print("Building centroids...")
-    centroids = build_centroids(train_embeddings, train_targets, class_count=class_count)
+    if prior_run is not None and retained_only_labels:
+        centroids = build_centroids_with_prior(
+            train_embeddings, train_targets, class_count,
+            prior_run.centroids, prior_run.labels, labels,
+        )
+    else:
+        centroids = build_centroids(train_embeddings, train_targets, class_count=class_count)
 
     saved_lora_state = lora_state_dict(model)
     saved_lora_config = {
@@ -376,6 +576,10 @@ def run_finetune(config: FinetuneConfig) -> dict[str, object]:
         "threshold_leaderboard": threshold_leaderboard,
         "final_val_top1": round(final_val_top1, 6),
     }
+    if config.resume_from is not None:
+        training_summary["resumed_from"] = str(config.resume_from)
+        training_summary["retained_only_labels"] = retained_only_labels
+        training_summary["new_labels"] = new_labels
     bundle.training_summary = training_summary
 
     config.output_dir.mkdir(parents=True, exist_ok=True)

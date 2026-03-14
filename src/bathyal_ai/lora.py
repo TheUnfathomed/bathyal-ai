@@ -17,6 +17,15 @@ class LoraConfig:
     target_blocks: list[int] | None = None
     targets: list[str] = field(default_factory=lambda: ["q", "k", "v", "o"])
 
+    @classmethod
+    def from_dict(cls, d: dict[str, object]) -> "LoraConfig":
+        return cls(
+            rank=int(d.get("rank", 8)),
+            alpha=float(d.get("alpha", 16.0)),
+            target_blocks=d.get("target_blocks"),
+            targets=d.get("targets", ["q", "k", "v", "o"]),
+        )
+
 
 class LoraLinear(nn.Module):
     def __init__(self, base: nn.Linear, rank: int, alpha: float) -> None:

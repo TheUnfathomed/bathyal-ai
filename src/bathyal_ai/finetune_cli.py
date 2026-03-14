@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 
 from .finetune import FinetuneConfig, run_finetune
@@ -35,10 +36,13 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--unknown-dir", default=None, help="Optional directory of unknown crops for threshold calibration.")
     parser.add_argument("--output-dir", default="artifacts/species_classifier_lora", help="Output directory for the fine-tuned bundle.")
     parser.add_argument("--bioclip-model", default="hf-hub:imageomics/bioclip-2", help="BioCLIP model identifier.")
-    parser.add_argument("--lora-rank", type=int, default=8, help="LoRA rank.")
-    parser.add_argument("--lora-alpha", type=float, default=16.0, help="LoRA alpha scaling factor.")
+    parser.add_argument("--resume-from", default=None, help="Path to a prior output directory for warm-start initialization.")
+    parser.add_argument("--resume-checkpoint", default=None, help="Path to a checkpoint file to resume an interrupted training run.")
+    parser.add_argument("--checkpoint-every", type=int, default=None, help="Save a checkpoint every N epochs (also saves on best-val improvement).")
+    parser.add_argument("--lora-rank", type=int, default=None, help="LoRA rank (default: 8, or inherited from --resume-from).")
+    parser.add_argument("--lora-alpha", type=float, default=None, help="LoRA alpha scaling factor (default: 16.0, or inherited from --resume-from).")
     parser.add_argument("--lora-target-blocks", type=parse_int_list, default=None, help="Comma-separated block indices for LoRA (default: all).")
-    parser.add_argument("--lora-targets", type=parse_str_list, default="q,k,v,o", help="Comma-separated attention projections to adapt: q,k,v,o.")
+    parser.add_argument("--lora-targets", type=parse_str_list, default=None, help="Comma-separated attention projections to adapt: q,k,v,o.")
     parser.add_argument("--lora-lr", type=float, default=1e-4, help="Learning rate for LoRA parameters.")
     parser.add_argument("--head-lr", type=float, default=5e-3, help="Learning rate for classifier head.")
     parser.add_argument("--weight-decay", type=float, default=1e-4, help="Weight decay.")
@@ -72,8 +76,33 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
+def _resolve_lora_defaults(args: argparse.Namespace) -> None:
+    prior_lora: dict[str, object] = {}
+    if args.resume_from:
+        meta_path = Path(args.resume_from) / "metadata.json"
+        if meta_path.exists():
+            metadata = json.loads(meta_path.read_text(encoding="utf-8"))
+            prior_lora = metadata.get("lora_config", {})
+
+    if args.lora_rank is None:
+        args.lora_rank = prior_lora.get("rank", 8)
+    if args.lora_alpha is None:
+        args.lora_alpha = prior_lora.get("alpha", 16.0)
+    if args.lora_target_blocks is None:
+        args.lora_target_blocks = prior_lora.get("target_blocks")
+    if args.lora_targets is None:
+        prior_targets = prior_lora.get("targets")
+        args.lora_targets = prior_targets if prior_targets is not None else ["q", "k", "v", "o"]
+
+
 def main() -> None:
-    args = build_parser().parse_args()
+    parser = build_parser()
+    args = parser.parse_args()
+
+    if args.resume_from and args.resume_checkpoint:
+        parser.error("--resume-from and --resume-checkpoint are mutually exclusive")
+
+    _resolve_lora_defaults(args)
 
     lora_targets = args.lora_targets if isinstance(args.lora_targets, list) else parse_str_list(args.lora_targets)
 
@@ -83,6 +112,9 @@ def main() -> None:
         output_dir=Path(args.output_dir),
         unknown_dir=Path(args.unknown_dir) if args.unknown_dir else None,
         bioclip_model=args.bioclip_model,
+        resume_from=Path(args.resume_from) if args.resume_from else None,
+        resume_checkpoint=Path(args.resume_checkpoint) if args.resume_checkpoint else None,
+        checkpoint_every=args.checkpoint_every,
         lora_rank=args.lora_rank,
         lora_alpha=args.lora_alpha,
         lora_target_blocks=args.lora_target_blocks,

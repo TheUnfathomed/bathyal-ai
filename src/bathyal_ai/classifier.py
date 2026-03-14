@@ -258,12 +258,7 @@ class SpeciesClassifierBundle:
         if lora_config and lora_weights_path.exists():
             from .lora import LoraConfig, apply_lora_to_vision_encoder, load_lora_state_dict, merge_lora_weights
 
-            lora_cfg = LoraConfig(
-                rank=int(lora_config.get("rank", 8)),
-                alpha=float(lora_config.get("alpha", 16.0)),
-                target_blocks=lora_config.get("target_blocks"),
-                targets=lora_config.get("targets", ["q", "k", "v", "o"]),
-            )
+            lora_cfg = LoraConfig.from_dict(lora_config)
             apply_lora_to_vision_encoder(instance.embedder.model, lora_cfg)
             state_dict = torch.load(lora_weights_path, map_location="cpu")
             load_lora_state_dict(instance.embedder.model, state_dict)
