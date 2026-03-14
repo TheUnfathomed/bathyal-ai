@@ -6,6 +6,7 @@ import argparse
 from pathlib import Path
 
 from .ingest import FathomNetIngestConfig, ingest_fathomnet
+from .ingest_inaturalist import INaturalistIngestConfig, ingest_inaturalist
 
 
 
@@ -133,6 +134,24 @@ def build_parser() -> argparse.ArgumentParser:
         default=".cache/ingest/images/fathomnet",
         help="Cache directory for downloaded source images.",
     )
+
+    inat_parser = subparsers.add_parser(
+        "inaturalist",
+        help="Download iNaturalist research-grade observation photos for classifier training.",
+    )
+    inat_parser.add_argument("--concept", action="append", default=[], help="Concept to ingest. Repeat or pass comma-separated.")
+    inat_parser.add_argument("--concept-file", default=None, help="Optional newline-delimited concept file.")
+    inat_parser.add_argument("--output-dir", default="datasets/inaturalist_seed", help="Dataset root.")
+    inat_parser.add_argument("--limit-per-concept", type=int, default=100, help="Max photos per concept.")
+    inat_parser.add_argument("--val-fraction", type=float, default=0.2, help="Validation split fraction.")
+    inat_parser.add_argument("--photo-size", default="large", help="Photo size: square, thumb, small, medium, large, original.")
+    inat_parser.add_argument("--photo-license", default="cc-by,cc-by-nc,cc-by-sa,cc-by-nc-sa,cc0", help="Comma-separated photo license filter.")
+    inat_parser.add_argument("--min-image-size", type=int, default=224, help="Skip images smaller than this in either dimension.")
+    inat_parser.add_argument("--dataset-role", choices=["known", "unknown"], default="known", help="Write labeled crops or unknown_val.")
+    inat_parser.add_argument("--cache-dir", default=".cache/ingest/images/inaturalist", help="Cache directory for downloaded images.")
+    inat_parser.add_argument("--api-delay", type=float, default=1.0, help="Delay between API requests in seconds.")
+    inat_parser.add_argument("--download-delay", type=float, default=0.2, help="Delay between image downloads in seconds.")
+
     return parser
 
 
@@ -172,6 +191,36 @@ def main() -> None:
                 f"{concept_summary['crops_written']} crops "
                 f"from {concept_summary['images_considered']} images "
                 f"matched={matched}"
+            )
+
+
+    elif args.source == "inaturalist":
+        concepts = load_concepts(args)
+        if not concepts:
+            raise SystemExit("At least one concept is required")
+        config = INaturalistIngestConfig(
+            concepts=concepts,
+            output_dir=Path(args.output_dir),
+            limit_per_concept=args.limit_per_concept,
+            val_fraction=args.val_fraction,
+            photo_size=args.photo_size,
+            photo_license=args.photo_license,
+            min_image_size=args.min_image_size,
+            dataset_role=args.dataset_role,
+            cache_dir=Path(args.cache_dir),
+            api_delay=args.api_delay,
+            download_delay=args.download_delay,
+        )
+        result = ingest_inaturalist(config)
+        print(f"Output dir: {result['output_dir']}")
+        print(f"Manifest: {result['manifest']}")
+        print(f"Total photos downloaded: {result['total_photos_downloaded']}")
+        for concept_summary in result["concept_summaries"]:
+            taxon_id = concept_summary.get("taxon_id", "N/A")
+            print(
+                f"  {concept_summary['query_concept']} (taxon {taxon_id}): "
+                f"{concept_summary['photos_downloaded']} photos "
+                f"from {concept_summary['observations_queried']} observations"
             )
 
 

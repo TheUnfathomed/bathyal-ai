@@ -42,6 +42,23 @@ class BioClipEmbedder:
             return device
         return "cuda" if torch.cuda.is_available() else "cpu"
 
+    @classmethod
+    def from_model(
+        cls,
+        model_name: str,
+        model,
+        preprocess,
+        device: str,
+        batch_size: int = 16,
+    ) -> BioClipEmbedder:
+        instance = cls.__new__(cls)
+        instance.model_name = model_name
+        instance.device = device
+        instance.batch_size = batch_size
+        instance.model = model
+        instance.preprocess = preprocess
+        return instance
+
     def _load_model(self):
         try:
             model, preprocess = open_clip.create_model_from_pretrained(self.model_name)

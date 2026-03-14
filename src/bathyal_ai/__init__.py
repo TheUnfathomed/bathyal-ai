@@ -3,6 +3,7 @@
 from .classifier import SpeciesClassifierBundle, ThresholdConfig
 from .evaluation import EvaluationConfig, run_evaluation
 from .pipeline import PipelineConfig, run_pipeline
+from .finetune import FinetuneConfig, run_finetune
 from .training import TrainingConfig, train_classifier
 
 __all__ = [
@@ -14,6 +15,8 @@ __all__ = [
     "run_pipeline",
     "TrainingConfig",
     "train_classifier",
+    "FinetuneConfig",
+    "run_finetune",
 ]
 
 try:

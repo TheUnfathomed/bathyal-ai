@@ -16,6 +16,7 @@ dependencies = [
     "open_clip_torch>=2.32.0",
     "pillow>=10.4.0",
     "torch>=2.6.0",
+    "torchvision>=0.21.0",
     "ultralytics>=8.3.0",
 ]
 
@@ -32,6 +33,7 @@ bathyal-ai = "bathyal_ai.cli:main"
 bathyal-ai-eval = "bathyal_ai.eval_cli:main"
 bathyal-ai-train = "bathyal_ai.train_cli:main"
 bathyal-ai-ingest = "bathyal_ai.ingest_cli:main"
+bathyal-ai-finetune = "bathyal_ai.finetune_cli:main"
 
 [[tool.uv.index]]
 name = "pytorch-cu128"

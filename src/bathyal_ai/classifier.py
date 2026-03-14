@@ -64,6 +64,7 @@ class SpeciesClassifierBundle:
         training_summary: dict[str, object] | None = None,
         created_at: str | None = None,
         bundle_dir: Path | None = None,
+        lora_config: dict[str, object] | None = None,
     ) -> None:
         if centroids.ndim != 2:
             raise ValueError("Centroids must be a 2D matrix")
@@ -80,6 +81,7 @@ class SpeciesClassifierBundle:
         self.training_summary = training_summary or {}
         self.created_at = created_at or datetime.now(timezone.utc).isoformat(timespec="seconds")
         self.bundle_dir = bundle_dir
+        self.lora_config = lora_config
 
         self.embedder = BioClipEmbedder(model_name=bioclip_model, device=device, batch_size=embed_batch_size)
         self.device = self.embedder.device
@@ -198,7 +200,7 @@ class SpeciesClassifierBundle:
         np.save(bundle_dir / "centroids.npy", self.centroids.astype(np.float32))
 
         metadata = {
-            "bundle_format_version": 1,
+            "bundle_format_version": 2 if self.lora_config else 1,
             "bioclip_model": self.bioclip_model,
             "labels": self.labels,
             "feature_dim": self.feature_dim,
@@ -207,6 +209,7 @@ class SpeciesClassifierBundle:
             "top_candidate_count": self.top_candidate_count,
             "training_summary": self.training_summary,
             "created_at": self.created_at,
+            "lora_config": self.lora_config,
         }
         (bundle_dir / "metadata.json").write_text(json.dumps(metadata, indent=2), encoding="utf-8")
         self.bundle_dir = bundle_dir
@@ -234,7 +237,8 @@ class SpeciesClassifierBundle:
         state = torch.load(head_path, map_location="cpu")
         head.load_state_dict(state["state_dict"])
 
-        return cls(
+        lora_config = metadata.get("lora_config")
+        instance = cls(
             bioclip_model=str(metadata["bioclip_model"]),
             labels=labels,
             head=head,
@@ -247,4 +251,22 @@ class SpeciesClassifierBundle:
             training_summary=metadata.get("training_summary", {}),
             created_at=metadata.get("created_at"),
             bundle_dir=bundle_dir,
+            lora_config=lora_config,
         )
+
+        lora_weights_path = bundle_dir / "lora_weights.pt"
+        if lora_config and lora_weights_path.exists():
+            from .lora import LoraConfig, apply_lora_to_vision_encoder, load_lora_state_dict, merge_lora_weights
+
+            lora_cfg = LoraConfig(
+                rank=int(lora_config.get("rank", 8)),
+                alpha=float(lora_config.get("alpha", 16.0)),
+                target_blocks=lora_config.get("target_blocks"),
+                targets=lora_config.get("targets", ["q", "k", "v", "o"]),
+            )
+            apply_lora_to_vision_encoder(instance.embedder.model, lora_cfg)
+            state_dict = torch.load(lora_weights_path, map_location="cpu")
+            load_lora_state_dict(instance.embedder.model, state_dict)
+            merge_lora_weights(instance.embedder.model)
+
+        return instance
