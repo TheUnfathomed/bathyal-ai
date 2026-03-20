@@ -18,7 +18,8 @@
       "Bash(aws s3:*)",
       "Bash(curl:*)",
       "Bash(gunzip -k /d/bathyal_training_data_inat_s3/taxa.csv.gz)",
-      "Bash(tar czf:*)"
+      "Bash(tar czf:*)",
+      "Read(//c/Users/ogace/.ssh/**)"
     ]
   }
 }

@@ -262,7 +262,13 @@ def run_finetune(config: FinetuneConfig) -> dict[str, object]:
     label_to_index = {label: index for index, label in enumerate(labels)}
     class_count = len(labels)
 
-    ensure_labels_subset(val_dataset, labels, "Validation dataset")
+    val_unknown_labels = sorted(set(val_dataset.labels) - set(labels))
+    if val_unknown_labels:
+        print(f"Filtering {len(val_unknown_labels)} val-only labels not present in training set")
+        val_dataset = IndexedDataset(
+            root=val_dataset.root,
+            examples=[ex for ex in val_dataset.examples if ex.label in label_to_index],
+        )
 
     print(f"Training: {train_dataset.example_count} examples, {class_count} classes")
     print(f"Validation: {val_dataset.example_count} examples")
