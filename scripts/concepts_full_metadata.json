@@ -1,0 +1,3112 @@
+[
+  {
+    "concept": "Lutjanus campechanus",
+    "fathomnet_box_count": 151292,
+    "rank": 1
+  },
+  {
+    "concept": "Stenotomus caprinus",
+    "fathomnet_box_count": 26775,
+    "rank": 2
+  },
+  {
+    "concept": "Rhomboplites aurorubens",
+    "fathomnet_box_count": 25825,
+    "rank": 3
+  },
+  {
+    "concept": "Strongylocentrotus fragilis",
+    "fathomnet_box_count": 23061,
+    "rank": 4
+  },
+  {
+    "concept": "Ptereleotris",
+    "fathomnet_box_count": 21131,
+    "rank": 5
+  },
+  {
+    "concept": "Pagrus pagrus",
+    "fathomnet_box_count": 17028,
+    "rank": 6
+  },
+  {
+    "concept": "Chromis",
+    "fathomnet_box_count": 15769,
+    "rank": 7
+  },
+  {
+    "concept": "Mycteroperca phenax",
+    "fathomnet_box_count": 15347,
+    "rank": 8
+  },
+  {
+    "concept": "Epinephelus morio",
+    "fathomnet_box_count": 13311,
+    "rank": 9
+  },
+  {
+    "concept": "Ophiuroidea",
+    "fathomnet_box_count": 12523,
+    "rank": 10
+  },
+  {
+    "concept": "Balistes capriscus",
+    "fathomnet_box_count": 11379,
+    "rank": 11
+  },
+  {
+    "concept": "Mycteroperca microlepis",
+    "fathomnet_box_count": 10919,
+    "rank": 12
+  },
+  {
+    "concept": "Priacanthus arenatus",
+    "fathomnet_box_count": 10505,
+    "rank": 13
+  },
+  {
+    "concept": "Pronotogrammus martinicensis",
+    "fathomnet_box_count": 9692,
+    "rank": 14
+  },
+  {
+    "concept": "Halichoeres",
+    "fathomnet_box_count": 8603,
+    "rank": 15
+  },
+  {
+    "concept": "Malacanthus plumieri",
+    "fathomnet_box_count": 8578,
+    "rank": 16
+  },
+  {
+    "concept": "Porifera",
+    "fathomnet_box_count": 8343,
+    "rank": 17
+  },
+  {
+    "concept": "Serranus phoebe",
+    "fathomnet_box_count": 8111,
+    "rank": 18
+  },
+  {
+    "concept": "Pterois",
+    "fathomnet_box_count": 7625,
+    "rank": 19
+  },
+  {
+    "concept": "Anoplopoma fimbria",
+    "fathomnet_box_count": 7568,
+    "rank": 20
+  },
+  {
+    "concept": "Serranus annularis",
+    "fathomnet_box_count": 7199,
+    "rank": 21
+  },
+  {
+    "concept": "Haemulon aurolineatum",
+    "fathomnet_box_count": 7007,
+    "rank": 22
+  },
+  {
+    "concept": "Selene vomer",
+    "fathomnet_box_count": 7007,
+    "rank": 23
+  },
+  {
+    "concept": "Anthiadidae",
+    "fathomnet_box_count": 6927,
+    "rank": 24
+  },
+  {
+    "concept": "Pristigenys alta",
+    "fathomnet_box_count": 6917,
+    "rank": 25
+  },
+  {
+    "concept": "Actiniaria",
+    "fathomnet_box_count": 6776,
+    "rank": 26
+  },
+  {
+    "concept": "Pristipomoides",
+    "fathomnet_box_count": 6767,
+    "rank": 27
+  },
+  {
+    "concept": "Psolus squamatus",
+    "fathomnet_box_count": 6415,
+    "rank": 28
+  },
+  {
+    "concept": "Lutjanus griseus",
+    "fathomnet_box_count": 6256,
+    "rank": 29
+  },
+  {
+    "concept": "Pomacentridae",
+    "fathomnet_box_count": 5517,
+    "rank": 30
+  },
+  {
+    "concept": "Sebastolobus",
+    "fathomnet_box_count": 5494,
+    "rank": 31
+  },
+  {
+    "concept": "Chaetodon sedentarius",
+    "fathomnet_box_count": 5397,
+    "rank": 32
+  },
+  {
+    "concept": "Merluccius productus",
+    "fathomnet_box_count": 5277,
+    "rank": 33
+  },
+  {
+    "concept": "Halichoeres bivittatus",
+    "fathomnet_box_count": 4925,
+    "rank": 34
+  },
+  {
+    "concept": "Asteroidea",
+    "fathomnet_box_count": 4902,
+    "rank": 35
+  },
+  {
+    "concept": "Seriola rivoliana",
+    "fathomnet_box_count": 4902,
+    "rank": 36
+  },
+  {
+    "concept": "Chionoecetes tanneri",
+    "fathomnet_box_count": 4716,
+    "rank": 37
+  },
+  {
+    "concept": "Seriola dumerili",
+    "fathomnet_box_count": 4621,
+    "rank": 38
+  },
+  {
+    "concept": "Centropristis philadelphica",
+    "fathomnet_box_count": 4504,
+    "rank": 39
+  },
+  {
+    "concept": "Calamus nodosus",
+    "fathomnet_box_count": 4480,
+    "rank": 40
+  },
+  {
+    "concept": "Keratoisis",
+    "fathomnet_box_count": 4251,
+    "rank": 41
+  },
+  {
+    "concept": "Calamus leucosteus",
+    "fathomnet_box_count": 4237,
+    "rank": 42
+  },
+  {
+    "concept": "Opistognathus",
+    "fathomnet_box_count": 4131,
+    "rank": 43
+  },
+  {
+    "concept": "Prognathodes aya",
+    "fathomnet_box_count": 3832,
+    "rank": 44
+  },
+  {
+    "concept": "Hyporthodus flavolimbatus",
+    "fathomnet_box_count": 3821,
+    "rank": 45
+  },
+  {
+    "concept": "Hexactinellida",
+    "fathomnet_box_count": 3811,
+    "rank": 46
+  },
+  {
+    "concept": "Lachnolaimus maximus",
+    "fathomnet_box_count": 3811,
+    "rank": 47
+  },
+  {
+    "concept": "Rathbunaster californicus",
+    "fathomnet_box_count": 3789,
+    "rank": 48
+  },
+  {
+    "concept": "Sabellidae",
+    "fathomnet_box_count": 3743,
+    "rank": 49
+  },
+  {
+    "concept": "Heterochone calyx",
+    "fathomnet_box_count": 3692,
+    "rank": 50
+  },
+  {
+    "concept": "Serranus subligarius",
+    "fathomnet_box_count": 3573,
+    "rank": 51
+  },
+  {
+    "concept": "Lutjanus synagris",
+    "fathomnet_box_count": 3407,
+    "rank": 52
+  },
+  {
+    "concept": "Anomura",
+    "fathomnet_box_count": 3388,
+    "rank": 53
+  },
+  {
+    "concept": "Paragorgia arborea",
+    "fathomnet_box_count": 3259,
+    "rank": 54
+  },
+  {
+    "concept": "Holacanthus bermudensis",
+    "fathomnet_box_count": 3114,
+    "rank": 55
+  },
+  {
+    "concept": "Staurocalyptus",
+    "fathomnet_box_count": 3049,
+    "rank": 56
+  },
+  {
+    "concept": "Munidopsis",
+    "fathomnet_box_count": 3048,
+    "rank": 57
+  },
+  {
+    "concept": "Caranx crysos",
+    "fathomnet_box_count": 2878,
+    "rank": 58
+  },
+  {
+    "concept": "Paranthias furcifer",
+    "fathomnet_box_count": 2838,
+    "rank": 59
+  },
+  {
+    "concept": "Chordata",
+    "fathomnet_box_count": 2824,
+    "rank": 60
+  },
+  {
+    "concept": "Caulolatilus microps",
+    "fathomnet_box_count": 2782,
+    "rank": 61
+  },
+  {
+    "concept": "Pennatulacea",
+    "fathomnet_box_count": 2772,
+    "rank": 62
+  },
+  {
+    "concept": "Scotoplanes globosa",
+    "fathomnet_box_count": 2765,
+    "rank": 63
+  },
+  {
+    "concept": "Peniagone",
+    "fathomnet_box_count": 2741,
+    "rank": 64
+  },
+  {
+    "concept": "Pannychia moseleyi",
+    "fathomnet_box_count": 2707,
+    "rank": 65
+  },
+  {
+    "concept": "Peniagone sp. A",
+    "fathomnet_box_count": 2654,
+    "rank": 66
+  },
+  {
+    "concept": "Stenocionops spinimanus",
+    "fathomnet_box_count": 2636,
+    "rank": 67
+  },
+  {
+    "concept": "Serpulidae",
+    "fathomnet_box_count": 2609,
+    "rank": 68
+  },
+  {
+    "concept": "Chaetodon ocellatus",
+    "fathomnet_box_count": 2533,
+    "rank": 69
+  },
+  {
+    "concept": "Bathochordaeus stygius",
+    "fathomnet_box_count": 2479,
+    "rank": 70
+  },
+  {
+    "concept": "Decodon puellaris",
+    "fathomnet_box_count": 2419,
+    "rank": 71
+  },
+  {
+    "concept": "Funiculina",
+    "fathomnet_box_count": 2417,
+    "rank": 72
+  },
+  {
+    "concept": "Galatheoidea",
+    "fathomnet_box_count": 2374,
+    "rank": 73
+  },
+  {
+    "concept": "Mycteroperca interstitialis",
+    "fathomnet_box_count": 2313,
+    "rank": 74
+  },
+  {
+    "concept": "Canthigaster rostrata",
+    "fathomnet_box_count": 2306,
+    "rank": 75
+  },
+  {
+    "concept": "Isididae",
+    "fathomnet_box_count": 2274,
+    "rank": 76
+  },
+  {
+    "concept": "Crinoidea",
+    "fathomnet_box_count": 2241,
+    "rank": 77
+  },
+  {
+    "concept": "Zoantharia",
+    "fathomnet_box_count": 2229,
+    "rank": 78
+  },
+  {
+    "concept": "Farrea",
+    "fathomnet_box_count": 2198,
+    "rank": 79
+  },
+  {
+    "concept": "Solmissus",
+    "fathomnet_box_count": 2067,
+    "rank": 80
+  },
+  {
+    "concept": "Bathochordaeus",
+    "fathomnet_box_count": 2017,
+    "rank": 81
+  },
+  {
+    "concept": "Coryphaenoides",
+    "fathomnet_box_count": 2012,
+    "rank": 82
+  },
+  {
+    "concept": "Heteropolypus ritteri",
+    "fathomnet_box_count": 1999,
+    "rank": 83
+  },
+  {
+    "concept": "Keratoisidinae",
+    "fathomnet_box_count": 1989,
+    "rank": 84
+  },
+  {
+    "concept": "Lampocteis cruentiventer",
+    "fathomnet_box_count": 1970,
+    "rank": 85
+  },
+  {
+    "concept": "Scotoplanes",
+    "fathomnet_box_count": 1856,
+    "rank": 86
+  },
+  {
+    "concept": "Doryteuthis (Amerigo) opalescens",
+    "fathomnet_box_count": 1767,
+    "rank": 87
+  },
+  {
+    "concept": "Calamus bajonado",
+    "fathomnet_box_count": 1751,
+    "rank": 88
+  },
+  {
+    "concept": "Seriola fasciata",
+    "fathomnet_box_count": 1741,
+    "rank": 89
+  },
+  {
+    "concept": "Tomopteris",
+    "fathomnet_box_count": 1727,
+    "rank": 90
+  },
+  {
+    "concept": "Bargmannia elongata",
+    "fathomnet_box_count": 1721,
+    "rank": 91
+  },
+  {
+    "concept": "Tunicata",
+    "fathomnet_box_count": 1644,
+    "rank": 92
+  },
+  {
+    "concept": "Munnopsidae",
+    "fathomnet_box_count": 1569,
+    "rank": 93
+  },
+  {
+    "concept": "Epinephelus",
+    "fathomnet_box_count": 1555,
+    "rank": 94
+  },
+  {
+    "concept": "Bodianus rufus",
+    "fathomnet_box_count": 1544,
+    "rank": 95
+  },
+  {
+    "concept": "Lutjanus analis",
+    "fathomnet_box_count": 1542,
+    "rank": 96
+  },
+  {
+    "concept": "Eusergestes similis",
+    "fathomnet_box_count": 1541,
+    "rank": 97
+  },
+  {
+    "concept": "Isosicyonis",
+    "fathomnet_box_count": 1537,
+    "rank": 98
+  },
+  {
+    "concept": "Poralia rufescens",
+    "fathomnet_box_count": 1529,
+    "rank": 99
+  },
+  {
+    "concept": "Carcharhinus falciformis",
+    "fathomnet_box_count": 1503,
+    "rank": 100
+  },
+  {
+    "concept": "Nanomia bijuga",
+    "fathomnet_box_count": 1471,
+    "rank": 101
+  },
+  {
+    "concept": "Caulolatilus chrysops",
+    "fathomnet_box_count": 1464,
+    "rank": 102
+  },
+  {
+    "concept": "Pyrosoma",
+    "fathomnet_box_count": 1459,
+    "rank": 103
+  },
+  {
+    "concept": "Seriola zonata",
+    "fathomnet_box_count": 1440,
+    "rank": 104
+  },
+  {
+    "concept": "Octopus rubescens",
+    "fathomnet_box_count": 1410,
+    "rank": 105
+  },
+  {
+    "concept": "Upeneus parvus",
+    "fathomnet_box_count": 1387,
+    "rank": 106
+  },
+  {
+    "concept": "Sebastidae",
+    "fathomnet_box_count": 1365,
+    "rank": 107
+  },
+  {
+    "concept": "Cephalopholis cruentata",
+    "fathomnet_box_count": 1362,
+    "rank": 108
+  },
+  {
+    "concept": "Holothuroidea",
+    "fathomnet_box_count": 1356,
+    "rank": 109
+  },
+  {
+    "concept": "Gastropoda",
+    "fathomnet_box_count": 1347,
+    "rank": 110
+  },
+  {
+    "concept": "Funiculina-Balticina complex",
+    "fathomnet_box_count": 1323,
+    "rank": 111
+  },
+  {
+    "concept": "Serranus",
+    "fathomnet_box_count": 1271,
+    "rank": 112
+  },
+  {
+    "concept": "Holocentrus adscensionis",
+    "fathomnet_box_count": 1266,
+    "rank": 113
+  },
+  {
+    "concept": "Bathochordaeus mcnutti",
+    "fathomnet_box_count": 1265,
+    "rank": 114
+  },
+  {
+    "concept": "Hippasteria",
+    "fathomnet_box_count": 1249,
+    "rank": 115
+  },
+  {
+    "concept": "Metridium farcimen",
+    "fathomnet_box_count": 1229,
+    "rank": 116
+  },
+  {
+    "concept": "Poeobius meseres",
+    "fathomnet_box_count": 1218,
+    "rank": 117
+  },
+  {
+    "concept": "Paragorgia",
+    "fathomnet_box_count": 1214,
+    "rank": 118
+  },
+  {
+    "concept": "Aegina",
+    "fathomnet_box_count": 1209,
+    "rank": 119
+  },
+  {
+    "concept": "Ptychogastria polaris",
+    "fathomnet_box_count": 1187,
+    "rank": 120
+  },
+  {
+    "concept": "Hormathiidae",
+    "fathomnet_box_count": 1161,
+    "rank": 121
+  },
+  {
+    "concept": "Liponema brevicorne",
+    "fathomnet_box_count": 1132,
+    "rank": 122
+  },
+  {
+    "concept": "Pyrosoma atlanticum",
+    "fathomnet_box_count": 1112,
+    "rank": 123
+  },
+  {
+    "concept": "Mullidae",
+    "fathomnet_box_count": 1110,
+    "rank": 124
+  },
+  {
+    "concept": "Coralliidae",
+    "fathomnet_box_count": 1107,
+    "rank": 125
+  },
+  {
+    "concept": "Chrysopathes speciosa",
+    "fathomnet_box_count": 1073,
+    "rank": 126
+  },
+  {
+    "concept": "Physonectae",
+    "fathomnet_box_count": 1065,
+    "rank": 127
+  },
+  {
+    "concept": "Urophycis regia",
+    "fathomnet_box_count": 1053,
+    "rank": 128
+  },
+  {
+    "concept": "Actinernus",
+    "fathomnet_box_count": 1048,
+    "rank": 129
+  },
+  {
+    "concept": "Vampyroteuthis infernalis",
+    "fathomnet_box_count": 1043,
+    "rank": 130
+  },
+  {
+    "concept": "LRJ complex",
+    "fathomnet_box_count": 1040,
+    "rank": 131
+  },
+  {
+    "concept": "Canthigaster jamestyleri",
+    "fathomnet_box_count": 1033,
+    "rank": 132
+  },
+  {
+    "concept": "Microstomus pacificus",
+    "fathomnet_box_count": 1029,
+    "rank": 133
+  },
+  {
+    "concept": "Atolla",
+    "fathomnet_box_count": 1026,
+    "rank": 134
+  },
+  {
+    "concept": "Scleractinia",
+    "fathomnet_box_count": 1026,
+    "rank": 135
+  },
+  {
+    "concept": "Paralomis multispina",
+    "fathomnet_box_count": 1019,
+    "rank": 136
+  },
+  {
+    "concept": "Isidella tentaculum",
+    "fathomnet_box_count": 1012,
+    "rank": 137
+  },
+  {
+    "concept": "Caridea",
+    "fathomnet_box_count": 988,
+    "rank": 138
+  },
+  {
+    "concept": "Sebastes",
+    "fathomnet_box_count": 971,
+    "rank": 139
+  },
+  {
+    "concept": "Bodianus pulchellus",
+    "fathomnet_box_count": 949,
+    "rank": 140
+  },
+  {
+    "concept": "Pandalus amplus",
+    "fathomnet_box_count": 945,
+    "rank": 141
+  },
+  {
+    "concept": "Ceriantharia",
+    "fathomnet_box_count": 941,
+    "rank": 142
+  },
+  {
+    "concept": "Chiroteuthis calyx",
+    "fathomnet_box_count": 919,
+    "rank": 143
+  },
+  {
+    "concept": "Pyrosoma detritus",
+    "fathomnet_box_count": 912,
+    "rank": 144
+  },
+  {
+    "concept": "Halichoeres bathyphilus",
+    "fathomnet_box_count": 896,
+    "rank": 145
+  },
+  {
+    "concept": "Psamminidae",
+    "fathomnet_box_count": 896,
+    "rank": 146
+  },
+  {
+    "concept": "Primnoidae",
+    "fathomnet_box_count": 892,
+    "rank": 147
+  },
+  {
+    "concept": "Umbellula sp. 2",
+    "fathomnet_box_count": 891,
+    "rank": 148
+  },
+  {
+    "concept": "Caulolatilus cyanops",
+    "fathomnet_box_count": 880,
+    "rank": 149
+  },
+  {
+    "concept": "Carcharhinus",
+    "fathomnet_box_count": 860,
+    "rank": 150
+  },
+  {
+    "concept": "Parastenella",
+    "fathomnet_box_count": 860,
+    "rank": 151
+  },
+  {
+    "concept": "Scleralcyonacea",
+    "fathomnet_box_count": 860,
+    "rank": 152
+  },
+  {
+    "concept": "Asbestopluma",
+    "fathomnet_box_count": 858,
+    "rank": 153
+  },
+  {
+    "concept": "Swiftia kofoidi",
+    "fathomnet_box_count": 848,
+    "rank": 154
+  },
+  {
+    "concept": "Amphipoda",
+    "fathomnet_box_count": 830,
+    "rank": 155
+  },
+  {
+    "concept": "Centropristis ocyurus",
+    "fathomnet_box_count": 818,
+    "rank": 156
+  },
+  {
+    "concept": "Pomacanthus arcuatus",
+    "fathomnet_box_count": 818,
+    "rank": 157
+  },
+  {
+    "concept": "Eumalacostraca",
+    "fathomnet_box_count": 797,
+    "rank": 158
+  },
+  {
+    "concept": "Push Corer",
+    "fathomnet_box_count": 795,
+    "rank": 159
+  },
+  {
+    "concept": "Asbestopluma monticola",
+    "fathomnet_box_count": 793,
+    "rank": 160
+  },
+  {
+    "concept": "Haemulon album",
+    "fathomnet_box_count": 775,
+    "rank": 161
+  },
+  {
+    "concept": "Isidella",
+    "fathomnet_box_count": 754,
+    "rank": 162
+  },
+  {
+    "concept": "Poecilasmatidae",
+    "fathomnet_box_count": 754,
+    "rank": 163
+  },
+  {
+    "concept": "Embassichthys bathybius",
+    "fathomnet_box_count": 747,
+    "rank": 164
+  },
+  {
+    "concept": "Beringraja rhina",
+    "fathomnet_box_count": 742,
+    "rank": 165
+  },
+  {
+    "concept": "Apolemia",
+    "fathomnet_box_count": 731,
+    "rank": 166
+  },
+  {
+    "concept": "Liopropoma eukrines",
+    "fathomnet_box_count": 731,
+    "rank": 167
+  },
+  {
+    "concept": "Calamus proridens",
+    "fathomnet_box_count": 730,
+    "rank": 168
+  },
+  {
+    "concept": "Chaetognatha",
+    "fathomnet_box_count": 726,
+    "rank": 169
+  },
+  {
+    "concept": "Beroe",
+    "fathomnet_box_count": 717,
+    "rank": 170
+  },
+  {
+    "concept": "Paelopatides confundens",
+    "fathomnet_box_count": 710,
+    "rank": 171
+  },
+  {
+    "concept": "Archosargus probatocephalus",
+    "fathomnet_box_count": 696,
+    "rank": 172
+  },
+  {
+    "concept": "Praya dubia",
+    "fathomnet_box_count": 695,
+    "rank": 173
+  },
+  {
+    "concept": "Mycteroperca bonaci",
+    "fathomnet_box_count": 690,
+    "rank": 174
+  },
+  {
+    "concept": "Macrouridae",
+    "fathomnet_box_count": 688,
+    "rank": 175
+  },
+  {
+    "concept": "HYPORTHODUSNIGRITUS-170021202",
+    "fathomnet_box_count": 679,
+    "rank": 176
+  },
+  {
+    "concept": "Scotoplanes sp. A",
+    "fathomnet_box_count": 678,
+    "rank": 177
+  },
+  {
+    "concept": "Comatulida",
+    "fathomnet_box_count": 663,
+    "rank": 178
+  },
+  {
+    "concept": "Benthocodon",
+    "fathomnet_box_count": 662,
+    "rank": 179
+  },
+  {
+    "concept": "Prayidae",
+    "fathomnet_box_count": 662,
+    "rank": 180
+  },
+  {
+    "concept": "Serranus tortugarum",
+    "fathomnet_box_count": 655,
+    "rank": 181
+  },
+  {
+    "concept": "Syacium",
+    "fathomnet_box_count": 654,
+    "rank": 182
+  },
+  {
+    "concept": "Pleuronectiformes",
+    "fathomnet_box_count": 643,
+    "rank": 183
+  },
+  {
+    "concept": "Vesicomyidae",
+    "fathomnet_box_count": 640,
+    "rank": 184
+  },
+  {
+    "concept": "Benthocodon pedunculata",
+    "fathomnet_box_count": 633,
+    "rank": 185
+  },
+  {
+    "concept": "Chaetodon capistratus",
+    "fathomnet_box_count": 625,
+    "rank": 186
+  },
+  {
+    "concept": "Pandalus platyceros",
+    "fathomnet_box_count": 620,
+    "rank": 187
+  },
+  {
+    "concept": "Abyssocucumis abyssorum",
+    "fathomnet_box_count": 616,
+    "rank": 188
+  },
+  {
+    "concept": "Gersemia juliepackardae",
+    "fathomnet_box_count": 616,
+    "rank": 189
+  },
+  {
+    "concept": "Peniagone sp. 1",
+    "fathomnet_box_count": 605,
+    "rank": 190
+  },
+  {
+    "concept": "Neptunea-Buccinum Complex",
+    "fathomnet_box_count": 602,
+    "rank": 191
+  },
+  {
+    "concept": "Chrysogorgia sp.",
+    "fathomnet_box_count": 600,
+    "rank": 192
+  },
+  {
+    "concept": "Histioteuthis heteropsis",
+    "fathomnet_box_count": 596,
+    "rank": 193
+  },
+  {
+    "concept": "Chorilia longipes",
+    "fathomnet_box_count": 587,
+    "rank": 194
+  },
+  {
+    "concept": "Florometra serratissima",
+    "fathomnet_box_count": 581,
+    "rank": 195
+  },
+  {
+    "concept": "Dosidicus gigas",
+    "fathomnet_box_count": 575,
+    "rank": 196
+  },
+  {
+    "concept": "Peniagone vitrea",
+    "fathomnet_box_count": 573,
+    "rank": 197
+  },
+  {
+    "concept": "Siphonophorae",
+    "fathomnet_box_count": 567,
+    "rank": 198
+  },
+  {
+    "concept": "Swiftia simplex",
+    "fathomnet_box_count": 552,
+    "rank": 199
+  },
+  {
+    "concept": "Peniagone gracilis",
+    "fathomnet_box_count": 551,
+    "rank": 200
+  },
+  {
+    "concept": "Bargmannia lata",
+    "fathomnet_box_count": 543,
+    "rank": 201
+  },
+  {
+    "concept": "Sebastolobus altivelis",
+    "fathomnet_box_count": 534,
+    "rank": 202
+  },
+  {
+    "concept": "Aegina citrea",
+    "fathomnet_box_count": 525,
+    "rank": 203
+  },
+  {
+    "concept": "Brisingida",
+    "fathomnet_box_count": 524,
+    "rank": 204
+  },
+  {
+    "concept": "Galiteuthis phyllura",
+    "fathomnet_box_count": 523,
+    "rank": 205
+  },
+  {
+    "concept": "Lithodidae",
+    "fathomnet_box_count": 520,
+    "rank": 206
+  },
+  {
+    "concept": "Synallactidae",
+    "fathomnet_box_count": 519,
+    "rank": 207
+  },
+  {
+    "concept": "Acanthascinae",
+    "fathomnet_box_count": 513,
+    "rank": 208
+  },
+  {
+    "concept": "Ophichthus puncticeps",
+    "fathomnet_box_count": 507,
+    "rank": 209
+  },
+  {
+    "concept": "Taonius",
+    "fathomnet_box_count": 507,
+    "rank": 210
+  },
+  {
+    "concept": "Elpidia",
+    "fathomnet_box_count": 503,
+    "rank": 211
+  },
+  {
+    "concept": "Sebastes diploproa",
+    "fathomnet_box_count": 495,
+    "rank": 212
+  },
+  {
+    "concept": "Corallimorphus pilatus",
+    "fathomnet_box_count": 488,
+    "rank": 213
+  },
+  {
+    "concept": "Calycophorae",
+    "fathomnet_box_count": 483,
+    "rank": 214
+  },
+  {
+    "concept": "Octocorallia",
+    "fathomnet_box_count": 476,
+    "rank": 215
+  },
+  {
+    "concept": "Pandalopsis ampla",
+    "fathomnet_box_count": 474,
+    "rank": 216
+  },
+  {
+    "concept": "Keratoisididae",
+    "fathomnet_box_count": 473,
+    "rank": 217
+  },
+  {
+    "concept": "Caecosagitta macrocephala",
+    "fathomnet_box_count": 462,
+    "rank": 218
+  },
+  {
+    "concept": "Sphyrna lewini",
+    "fathomnet_box_count": 462,
+    "rank": 219
+  },
+  {
+    "concept": "Terebellidae",
+    "fathomnet_box_count": 460,
+    "rank": 220
+  },
+  {
+    "concept": "Muraena retifera",
+    "fathomnet_box_count": 449,
+    "rank": 221
+  },
+  {
+    "concept": "Atolla vanhoeffeni",
+    "fathomnet_box_count": 446,
+    "rank": 222
+  },
+  {
+    "concept": "Antimora microlepis",
+    "fathomnet_box_count": 440,
+    "rank": 223
+  },
+  {
+    "concept": "Hemicorallium sp.",
+    "fathomnet_box_count": 431,
+    "rank": 224
+  },
+  {
+    "concept": "Pasiphaea",
+    "fathomnet_box_count": 428,
+    "rank": 225
+  },
+  {
+    "concept": "Lycenchelys",
+    "fathomnet_box_count": 426,
+    "rank": 226
+  },
+  {
+    "concept": "Bathyraja trachura",
+    "fathomnet_box_count": 416,
+    "rank": 227
+  },
+  {
+    "concept": "Umbellula",
+    "fathomnet_box_count": 410,
+    "rank": 228
+  },
+  {
+    "concept": "Actinopterygii",
+    "fathomnet_box_count": 409,
+    "rank": 229
+  },
+  {
+    "concept": "Alectis ciliaris",
+    "fathomnet_box_count": 409,
+    "rank": 230
+  },
+  {
+    "concept": "Hymenaster",
+    "fathomnet_box_count": 406,
+    "rank": 231
+  },
+  {
+    "concept": "Apostichopus leukothele",
+    "fathomnet_box_count": 401,
+    "rank": 232
+  },
+  {
+    "concept": "Erenna laciniata",
+    "fathomnet_box_count": 399,
+    "rank": 233
+  },
+  {
+    "concept": "Erenna richardi",
+    "fathomnet_box_count": 399,
+    "rank": 234
+  },
+  {
+    "concept": "Euphausia 2",
+    "fathomnet_box_count": 397,
+    "rank": 235
+  },
+  {
+    "concept": "Ophiacanthidae",
+    "fathomnet_box_count": 397,
+    "rank": 236
+  },
+  {
+    "concept": "Lilyopsis fluoracantha",
+    "fathomnet_box_count": 394,
+    "rank": 237
+  },
+  {
+    "concept": "Canthidermis sufflamen",
+    "fathomnet_box_count": 392,
+    "rank": 238
+  },
+  {
+    "concept": "Heterocarpus sp. 1",
+    "fathomnet_box_count": 390,
+    "rank": 239
+  },
+  {
+    "concept": "Mysida",
+    "fathomnet_box_count": 387,
+    "rank": 240
+  },
+  {
+    "concept": "Antipatharia",
+    "fathomnet_box_count": 386,
+    "rank": 241
+  },
+  {
+    "concept": "Delectopecten",
+    "fathomnet_box_count": 385,
+    "rank": 242
+  },
+  {
+    "concept": "Gobiidae",
+    "fathomnet_box_count": 385,
+    "rank": 243
+  },
+  {
+    "concept": "Atolla wyvillei",
+    "fathomnet_box_count": 377,
+    "rank": 244
+  },
+  {
+    "concept": "Lychnagalma utricularia",
+    "fathomnet_box_count": 377,
+    "rank": 245
+  },
+  {
+    "concept": "Acanthoptilum",
+    "fathomnet_box_count": 373,
+    "rank": 246
+  },
+  {
+    "concept": "Lutjanus vivanus",
+    "fathomnet_box_count": 370,
+    "rank": 247
+  },
+  {
+    "concept": "Mediaster aequalis",
+    "fathomnet_box_count": 366,
+    "rank": 248
+  },
+  {
+    "concept": "Paralomis",
+    "fathomnet_box_count": 365,
+    "rank": 249
+  },
+  {
+    "concept": "Eptatretus",
+    "fathomnet_box_count": 362,
+    "rank": 250
+  },
+  {
+    "concept": "Psathyrometra fragilis",
+    "fathomnet_box_count": 362,
+    "rank": 251
+  },
+  {
+    "concept": "Opistognathus aurifrons",
+    "fathomnet_box_count": 358,
+    "rank": 252
+  },
+  {
+    "concept": "Pennatula phosphorea",
+    "fathomnet_box_count": 358,
+    "rank": 253
+  },
+  {
+    "concept": "Gymnothorax moringa",
+    "fathomnet_box_count": 350,
+    "rank": 254
+  },
+  {
+    "concept": "Elpidia sp. A",
+    "fathomnet_box_count": 349,
+    "rank": 255
+  },
+  {
+    "concept": "Sebastolobus sp.",
+    "fathomnet_box_count": 345,
+    "rank": 256
+  },
+  {
+    "concept": "Erenna cornuta",
+    "fathomnet_box_count": 344,
+    "rank": 257
+  },
+  {
+    "concept": "Swiftia",
+    "fathomnet_box_count": 336,
+    "rank": 258
+  },
+  {
+    "concept": "Beroe abyssicola",
+    "fathomnet_box_count": 332,
+    "rank": 259
+  },
+  {
+    "concept": "Pseudobathylagus milleri",
+    "fathomnet_box_count": 324,
+    "rank": 260
+  },
+  {
+    "concept": "Asteronyx",
+    "fathomnet_box_count": 323,
+    "rank": 261
+  },
+  {
+    "concept": "Coryphaenoides acrolepis",
+    "fathomnet_box_count": 321,
+    "rank": 262
+  },
+  {
+    "concept": "Solasteridae",
+    "fathomnet_box_count": 320,
+    "rank": 263
+  },
+  {
+    "concept": "Stylasterias forreri",
+    "fathomnet_box_count": 319,
+    "rank": 264
+  },
+  {
+    "concept": "Chrysogorgia",
+    "fathomnet_box_count": 318,
+    "rank": 265
+  },
+  {
+    "concept": "Myxoderma platyacanthum",
+    "fathomnet_box_count": 318,
+    "rank": 266
+  },
+  {
+    "concept": "Pennatula",
+    "fathomnet_box_count": 318,
+    "rank": 267
+  },
+  {
+    "concept": "Parazoanthidae",
+    "fathomnet_box_count": 312,
+    "rank": 268
+  },
+  {
+    "concept": "Porifera detritus",
+    "fathomnet_box_count": 300,
+    "rank": 269
+  },
+  {
+    "concept": "Bathyraja kincaidii",
+    "fathomnet_box_count": 295,
+    "rank": 270
+  },
+  {
+    "concept": "Latrunculia (Latrunculia) austini",
+    "fathomnet_box_count": 295,
+    "rank": 271
+  },
+  {
+    "concept": "Moloha faxoni",
+    "fathomnet_box_count": 294,
+    "rank": 272
+  },
+  {
+    "concept": "Thenea muricata",
+    "fathomnet_box_count": 294,
+    "rank": 273
+  },
+  {
+    "concept": "Plexauridae",
+    "fathomnet_box_count": 288,
+    "rank": 274
+  },
+  {
+    "concept": "Euryalidae",
+    "fathomnet_box_count": 280,
+    "rank": 275
+  },
+  {
+    "concept": "Neptunea",
+    "fathomnet_box_count": 279,
+    "rank": 276
+  },
+  {
+    "concept": "Vesicomya",
+    "fathomnet_box_count": 277,
+    "rank": 277
+  },
+  {
+    "concept": "Erenna sirena",
+    "fathomnet_box_count": 275,
+    "rank": 278
+  },
+  {
+    "concept": "Chrysogorgiidae",
+    "fathomnet_box_count": 274,
+    "rank": 279
+  },
+  {
+    "concept": "Mycale sp. 1",
+    "fathomnet_box_count": 270,
+    "rank": 280
+  },
+  {
+    "concept": "Clavularia",
+    "fathomnet_box_count": 268,
+    "rank": 281
+  },
+  {
+    "concept": "Bathochordaeus sinker",
+    "fathomnet_box_count": 265,
+    "rank": 282
+  },
+  {
+    "concept": "Peniagone vitrea- sp. 1 complex",
+    "fathomnet_box_count": 264,
+    "rank": 283
+  },
+  {
+    "concept": "Actiniidae sp. 1",
+    "fathomnet_box_count": 263,
+    "rank": 284
+  },
+  {
+    "concept": "Asbestopluma rickettsi",
+    "fathomnet_box_count": 259,
+    "rank": 285
+  },
+  {
+    "concept": "Bathocyroe fosteri",
+    "fathomnet_box_count": 258,
+    "rank": 286
+  },
+  {
+    "concept": "Pectinidae",
+    "fathomnet_box_count": 258,
+    "rank": 287
+  },
+  {
+    "concept": "Paragorgiidae",
+    "fathomnet_box_count": 251,
+    "rank": 288
+  },
+  {
+    "concept": "Beroe forskalii",
+    "fathomnet_box_count": 249,
+    "rank": 289
+  },
+  {
+    "concept": "Tomopteris nisseni",
+    "fathomnet_box_count": 249,
+    "rank": 290
+  },
+  {
+    "concept": "Mycteroperca",
+    "fathomnet_box_count": 248,
+    "rank": 291
+  },
+  {
+    "concept": "Cystocrepis setigera",
+    "fathomnet_box_count": 247,
+    "rank": 292
+  },
+  {
+    "concept": "Laqueus californicus",
+    "fathomnet_box_count": 247,
+    "rank": 293
+  },
+  {
+    "concept": "Euphausiacea",
+    "fathomnet_box_count": 238,
+    "rank": 294
+  },
+  {
+    "concept": "Actinopteri",
+    "fathomnet_box_count": 237,
+    "rank": 295
+  },
+  {
+    "concept": "Crossaster borealis",
+    "fathomnet_box_count": 236,
+    "rank": 296
+  },
+  {
+    "concept": "Mola mola",
+    "fathomnet_box_count": 235,
+    "rank": 297
+  },
+  {
+    "concept": "Gonatus onyx",
+    "fathomnet_box_count": 234,
+    "rank": 298
+  },
+  {
+    "concept": "Peniagone papillata",
+    "fathomnet_box_count": 234,
+    "rank": 299
+  },
+  {
+    "concept": "Cribrinopsis sp.",
+    "fathomnet_box_count": 233,
+    "rank": 300
+  },
+  {
+    "concept": "Kophobelemnon sp. 1",
+    "fathomnet_box_count": 233,
+    "rank": 301
+  },
+  {
+    "concept": "Muusoctopus robustus",
+    "fathomnet_box_count": 230,
+    "rank": 302
+  },
+  {
+    "concept": "Mycale",
+    "fathomnet_box_count": 230,
+    "rank": 303
+  },
+  {
+    "concept": "Poralia",
+    "fathomnet_box_count": 229,
+    "rank": 304
+  },
+  {
+    "concept": "Sclerothamnopsis",
+    "fathomnet_box_count": 227,
+    "rank": 305
+  },
+  {
+    "concept": "Munida",
+    "fathomnet_box_count": 225,
+    "rank": 306
+  },
+  {
+    "concept": "Chrysopathes",
+    "fathomnet_box_count": 220,
+    "rank": 307
+  },
+  {
+    "concept": "Seriola",
+    "fathomnet_box_count": 220,
+    "rank": 308
+  },
+  {
+    "concept": "Kiyohimea usagi",
+    "fathomnet_box_count": 219,
+    "rank": 309
+  },
+  {
+    "concept": "Lychnagalma",
+    "fathomnet_box_count": 219,
+    "rank": 310
+  },
+  {
+    "concept": "Pannychia",
+    "fathomnet_box_count": 219,
+    "rank": 311
+  },
+  {
+    "concept": "Procymbulia",
+    "fathomnet_box_count": 218,
+    "rank": 312
+  },
+  {
+    "concept": "Craseoa lathetica",
+    "fathomnet_box_count": 217,
+    "rank": 313
+  },
+  {
+    "concept": "Hyalonema (Oonema) bianchoratum",
+    "fathomnet_box_count": 216,
+    "rank": 314
+  },
+  {
+    "concept": "Pteraster",
+    "fathomnet_box_count": 216,
+    "rank": 315
+  },
+  {
+    "concept": "Pterasteridae",
+    "fathomnet_box_count": 212,
+    "rank": 316
+  },
+  {
+    "concept": "Synallactidae gen. et sp. indet.",
+    "fathomnet_box_count": 212,
+    "rank": 317
+  },
+  {
+    "concept": "Anthozoa",
+    "fathomnet_box_count": 208,
+    "rank": 318
+  },
+  {
+    "concept": "Beroe cucumis",
+    "fathomnet_box_count": 206,
+    "rank": 319
+  },
+  {
+    "concept": "Actinostolidae",
+    "fathomnet_box_count": 205,
+    "rank": 320
+  },
+  {
+    "concept": "Decapoda",
+    "fathomnet_box_count": 203,
+    "rank": 321
+  },
+  {
+    "concept": "Desmophyes haematogaster",
+    "fathomnet_box_count": 203,
+    "rank": 322
+  },
+  {
+    "concept": "Bathydorus laevis pseudospinosus",
+    "fathomnet_box_count": 202,
+    "rank": 323
+  },
+  {
+    "concept": "Lensia conoidea",
+    "fathomnet_box_count": 202,
+    "rank": 324
+  },
+  {
+    "concept": "Acanella weberi",
+    "fathomnet_box_count": 201,
+    "rank": 325
+  },
+  {
+    "concept": "Echinocrepis rostrata",
+    "fathomnet_box_count": 201,
+    "rank": 326
+  },
+  {
+    "concept": "Galatheidae",
+    "fathomnet_box_count": 199,
+    "rank": 327
+  },
+  {
+    "concept": "Solmissus incisa",
+    "fathomnet_box_count": 197,
+    "rank": 328
+  },
+  {
+    "concept": "Monacanthus tuckeri",
+    "fathomnet_box_count": 196,
+    "rank": 329
+  },
+  {
+    "concept": "Paraphyllina",
+    "fathomnet_box_count": 196,
+    "rank": 330
+  },
+  {
+    "concept": "Dibranchus hystrix",
+    "fathomnet_box_count": 194,
+    "rank": 331
+  },
+  {
+    "concept": "Atolla gigantea",
+    "fathomnet_box_count": 193,
+    "rank": 332
+  },
+  {
+    "concept": "Bathyraja spinosissima",
+    "fathomnet_box_count": 190,
+    "rank": 333
+  },
+  {
+    "concept": "Mediaster",
+    "fathomnet_box_count": 190,
+    "rank": 334
+  },
+  {
+    "concept": "Peniagone sp. 2",
+    "fathomnet_box_count": 190,
+    "rank": 335
+  },
+  {
+    "concept": "Lepidisis",
+    "fathomnet_box_count": 189,
+    "rank": 336
+  },
+  {
+    "concept": "Lycodes diapterus",
+    "fathomnet_box_count": 189,
+    "rank": 337
+  },
+  {
+    "concept": "Paraphelliactis pabista",
+    "fathomnet_box_count": 188,
+    "rank": 338
+  },
+  {
+    "concept": "Modeeria rotunda",
+    "fathomnet_box_count": 187,
+    "rank": 339
+  },
+  {
+    "concept": "Polychaeta",
+    "fathomnet_box_count": 187,
+    "rank": 340
+  },
+  {
+    "concept": "Taonius borealis",
+    "fathomnet_box_count": 187,
+    "rank": 341
+  },
+  {
+    "concept": "Cerianthidae",
+    "fathomnet_box_count": 184,
+    "rank": 342
+  },
+  {
+    "concept": "Demospongiae",
+    "fathomnet_box_count": 184,
+    "rank": 343
+  },
+  {
+    "concept": "Psychrolutes phrictus",
+    "fathomnet_box_count": 182,
+    "rank": 344
+  },
+  {
+    "concept": "Ampheraster",
+    "fathomnet_box_count": 181,
+    "rank": 345
+  },
+  {
+    "concept": "Appendicularia",
+    "fathomnet_box_count": 181,
+    "rank": 346
+  },
+  {
+    "concept": "Hastigerinella digitata",
+    "fathomnet_box_count": 179,
+    "rank": 347
+  },
+  {
+    "concept": "Corallimorpharia",
+    "fathomnet_box_count": 176,
+    "rank": 348
+  },
+  {
+    "concept": "Solmaris",
+    "fathomnet_box_count": 176,
+    "rank": 349
+  },
+  {
+    "concept": "Caranx ruber",
+    "fathomnet_box_count": 175,
+    "rank": 350
+  },
+  {
+    "concept": "Cnemidocarpa",
+    "fathomnet_box_count": 175,
+    "rank": 351
+  },
+  {
+    "concept": "Graneledone boreopacifica",
+    "fathomnet_box_count": 175,
+    "rank": 352
+  },
+  {
+    "concept": "Corbitellinae",
+    "fathomnet_box_count": 174,
+    "rank": 353
+  },
+  {
+    "concept": "Bathyteuthis berryi",
+    "fathomnet_box_count": 172,
+    "rank": 354
+  },
+  {
+    "concept": "Frillagalma vityazi",
+    "fathomnet_box_count": 172,
+    "rank": 355
+  },
+  {
+    "concept": "Planctoteuthis oligobessa",
+    "fathomnet_box_count": 172,
+    "rank": 356
+  },
+  {
+    "concept": "Chaetodipterus faber",
+    "fathomnet_box_count": 171,
+    "rank": 357
+  },
+  {
+    "concept": "Colossendeis",
+    "fathomnet_box_count": 171,
+    "rank": 358
+  },
+  {
+    "concept": "Lillipathes",
+    "fathomnet_box_count": 171,
+    "rank": 359
+  },
+  {
+    "concept": "Cladorhizidae",
+    "fathomnet_box_count": 170,
+    "rank": 360
+  },
+  {
+    "concept": "Ostichthys trachypoma",
+    "fathomnet_box_count": 168,
+    "rank": 361
+  },
+  {
+    "concept": "Bathyraja abyssicola",
+    "fathomnet_box_count": 166,
+    "rank": 362
+  },
+  {
+    "concept": "Planctoteuthis danae",
+    "fathomnet_box_count": 166,
+    "rank": 363
+  },
+  {
+    "concept": "Psamminidae sp. 1",
+    "fathomnet_box_count": 166,
+    "rank": 364
+  },
+  {
+    "concept": "Lycodes cortezianus",
+    "fathomnet_box_count": 164,
+    "rank": 365
+  },
+  {
+    "concept": "Animalia",
+    "fathomnet_box_count": 163,
+    "rank": 366
+  },
+  {
+    "concept": "Cystechinus loveni",
+    "fathomnet_box_count": 162,
+    "rank": 367
+  },
+  {
+    "concept": "Hydrolagus colliei",
+    "fathomnet_box_count": 161,
+    "rank": 368
+  },
+  {
+    "concept": "Octopus californicus",
+    "fathomnet_box_count": 161,
+    "rank": 369
+  },
+  {
+    "concept": "Chrysogorgia geniculata",
+    "fathomnet_box_count": 160,
+    "rank": 370
+  },
+  {
+    "concept": "Oneirophanta mutabilis complex",
+    "fathomnet_box_count": 160,
+    "rank": 371
+  },
+  {
+    "concept": "Sphyraena barracuda",
+    "fathomnet_box_count": 160,
+    "rank": 372
+  },
+  {
+    "concept": "Tromikosoma panamense",
+    "fathomnet_box_count": 160,
+    "rank": 373
+  },
+  {
+    "concept": "Opisthoteuthis cf. californiana",
+    "fathomnet_box_count": 159,
+    "rank": 374
+  },
+  {
+    "concept": "Callionymidae",
+    "fathomnet_box_count": 158,
+    "rank": 375
+  },
+  {
+    "concept": "Ptychogena lactea",
+    "fathomnet_box_count": 158,
+    "rank": 376
+  },
+  {
+    "concept": "Funiculina-Halipteris complex",
+    "fathomnet_box_count": 157,
+    "rank": 377
+  },
+  {
+    "concept": "Caranx bartholomaei",
+    "fathomnet_box_count": 156,
+    "rank": 378
+  },
+  {
+    "concept": "Planctoteuthis",
+    "fathomnet_box_count": 156,
+    "rank": 379
+  },
+  {
+    "concept": "Hexacorallia",
+    "fathomnet_box_count": 154,
+    "rank": 380
+  },
+  {
+    "concept": "Coryphaenoides acrolepis-filifer complex",
+    "fathomnet_box_count": 153,
+    "rank": 381
+  },
+  {
+    "concept": "Elpidiidae",
+    "fathomnet_box_count": 152,
+    "rank": 382
+  },
+  {
+    "concept": "Euplectellidae",
+    "fathomnet_box_count": 152,
+    "rank": 383
+  },
+  {
+    "concept": "Pleuroncodes planipes",
+    "fathomnet_box_count": 152,
+    "rank": 384
+  },
+  {
+    "concept": "Lutjanus apodus",
+    "fathomnet_box_count": 151,
+    "rank": 385
+  },
+  {
+    "concept": "Mitrocoma",
+    "fathomnet_box_count": 151,
+    "rank": 386
+  },
+  {
+    "concept": "Cherublemma emmelas",
+    "fathomnet_box_count": 150,
+    "rank": 387
+  },
+  {
+    "concept": "Krill molt",
+    "fathomnet_box_count": 150,
+    "rank": 388
+  },
+  {
+    "concept": "Lophaster",
+    "fathomnet_box_count": 149,
+    "rank": 389
+  },
+  {
+    "concept": "Sebastes melanostomus",
+    "fathomnet_box_count": 145,
+    "rank": 390
+  },
+  {
+    "concept": "Pannychia sp.",
+    "fathomnet_box_count": 144,
+    "rank": 391
+  },
+  {
+    "concept": "Boreomysis californica",
+    "fathomnet_box_count": 143,
+    "rank": 392
+  },
+  {
+    "concept": "Vitreosalpa gemini",
+    "fathomnet_box_count": 140,
+    "rank": 393
+  },
+  {
+    "concept": "Bathypterois pectinatus",
+    "fathomnet_box_count": 139,
+    "rank": 394
+  },
+  {
+    "concept": "Apristurus brunneus",
+    "fathomnet_box_count": 135,
+    "rank": 395
+  },
+  {
+    "concept": "Pandalidae",
+    "fathomnet_box_count": 135,
+    "rank": 396
+  },
+  {
+    "concept": "Polynoidae",
+    "fathomnet_box_count": 135,
+    "rank": 397
+  },
+  {
+    "concept": "Akoya platinum",
+    "fathomnet_box_count": 134,
+    "rank": 398
+  },
+  {
+    "concept": "Brachiopoda",
+    "fathomnet_box_count": 134,
+    "rank": 399
+  },
+  {
+    "concept": "Chrysaora fuscescens",
+    "fathomnet_box_count": 134,
+    "rank": 400
+  },
+  {
+    "concept": "Hirudinea",
+    "fathomnet_box_count": 134,
+    "rank": 401
+  },
+  {
+    "concept": "Salpida",
+    "fathomnet_box_count": 134,
+    "rank": 402
+  },
+  {
+    "concept": "Swiftia sp.",
+    "fathomnet_box_count": 134,
+    "rank": 403
+  },
+  {
+    "concept": "Balistes vetula",
+    "fathomnet_box_count": 133,
+    "rank": 404
+  },
+  {
+    "concept": "Gymnopraia lapislazula",
+    "fathomnet_box_count": 133,
+    "rank": 405
+  },
+  {
+    "concept": "Apolemia lanosa",
+    "fathomnet_box_count": 132,
+    "rank": 406
+  },
+  {
+    "concept": "Bivalvia",
+    "fathomnet_box_count": 131,
+    "rank": 407
+  },
+  {
+    "concept": "Icichthys lockingtoni",
+    "fathomnet_box_count": 131,
+    "rank": 408
+  },
+  {
+    "concept": "Bathyraja microtrachys",
+    "fathomnet_box_count": 130,
+    "rank": 409
+  },
+  {
+    "concept": "Epizoanthus stellaris",
+    "fathomnet_box_count": 130,
+    "rank": 410
+  },
+  {
+    "concept": "Tottonophyes enigmatica",
+    "fathomnet_box_count": 130,
+    "rank": 411
+  },
+  {
+    "concept": "Onykia robusta",
+    "fathomnet_box_count": 129,
+    "rank": 412
+  },
+  {
+    "concept": "Anoplogaster cornuta",
+    "fathomnet_box_count": 127,
+    "rank": 413
+  },
+  {
+    "concept": "Bolocera",
+    "fathomnet_box_count": 125,
+    "rank": 414
+  },
+  {
+    "concept": "Forskalia",
+    "fathomnet_box_count": 125,
+    "rank": 415
+  },
+  {
+    "concept": "Lycodapus sp.",
+    "fathomnet_box_count": 124,
+    "rank": 416
+  },
+  {
+    "concept": "Paguroidea",
+    "fathomnet_box_count": 124,
+    "rank": 417
+  },
+  {
+    "concept": "Farrea occa",
+    "fathomnet_box_count": 122,
+    "rank": 418
+  },
+  {
+    "concept": "Macropinna microstoma",
+    "fathomnet_box_count": 122,
+    "rank": 419
+  },
+  {
+    "concept": "Sibogagorgia cauliflora",
+    "fathomnet_box_count": 120,
+    "rank": 420
+  },
+  {
+    "concept": "Bathysiphon major",
+    "fathomnet_box_count": 119,
+    "rank": 421
+  },
+  {
+    "concept": "Isopoda",
+    "fathomnet_box_count": 119,
+    "rank": 422
+  },
+  {
+    "concept": "Pennatuloidea",
+    "fathomnet_box_count": 119,
+    "rank": 423
+  },
+  {
+    "concept": "Aurelia aurita",
+    "fathomnet_box_count": 117,
+    "rank": 424
+  },
+  {
+    "concept": "Colobonema sericeum",
+    "fathomnet_box_count": 117,
+    "rank": 425
+  },
+  {
+    "concept": "Desmophyes annectens",
+    "fathomnet_box_count": 116,
+    "rank": 426
+  },
+  {
+    "concept": "Iosactis vagabunda",
+    "fathomnet_box_count": 116,
+    "rank": 427
+  },
+  {
+    "concept": "Mitrocoma cellularia",
+    "fathomnet_box_count": 116,
+    "rank": 428
+  },
+  {
+    "concept": "Pteropoda",
+    "fathomnet_box_count": 116,
+    "rank": 429
+  },
+  {
+    "concept": "Asthenactis fisheri",
+    "fathomnet_box_count": 115,
+    "rank": 430
+  },
+  {
+    "concept": "Diplectrum formosum",
+    "fathomnet_box_count": 115,
+    "rank": 431
+  },
+  {
+    "concept": "Chromis enchrysurus",
+    "fathomnet_box_count": 114,
+    "rank": 432
+  },
+  {
+    "concept": "Paragorgia sp.",
+    "fathomnet_box_count": 114,
+    "rank": 433
+  },
+  {
+    "concept": "Coelorinchus scaphopsis",
+    "fathomnet_box_count": 113,
+    "rank": 434
+  },
+  {
+    "concept": "Bathysaurus mollis",
+    "fathomnet_box_count": 112,
+    "rank": 435
+  },
+  {
+    "concept": "Phacellophora camtschatica",
+    "fathomnet_box_count": 111,
+    "rank": 436
+  },
+  {
+    "concept": "Physiculus rastrelliger",
+    "fathomnet_box_count": 111,
+    "rank": 437
+  },
+  {
+    "concept": "Eutonina indicans",
+    "fathomnet_box_count": 110,
+    "rank": 438
+  },
+  {
+    "concept": "Pagurus tanneri",
+    "fathomnet_box_count": 110,
+    "rank": 439
+  },
+  {
+    "concept": "Periphylla periphylla",
+    "fathomnet_box_count": 110,
+    "rank": 440
+  },
+  {
+    "concept": "Anthomastus cf. tahinodus",
+    "fathomnet_box_count": 109,
+    "rank": 441
+  },
+  {
+    "concept": "Brisingidae",
+    "fathomnet_box_count": 109,
+    "rank": 442
+  },
+  {
+    "concept": "Hydroidolina",
+    "fathomnet_box_count": 109,
+    "rank": 443
+  },
+  {
+    "concept": "Pareques umbrosus",
+    "fathomnet_box_count": 109,
+    "rank": 444
+  },
+  {
+    "concept": "Phialidium",
+    "fathomnet_box_count": 109,
+    "rank": 445
+  },
+  {
+    "concept": "Stellamedusa ventana",
+    "fathomnet_box_count": 109,
+    "rank": 446
+  },
+  {
+    "concept": "Swima",
+    "fathomnet_box_count": 109,
+    "rank": 447
+  },
+  {
+    "concept": "Buccinidae sp. 1",
+    "fathomnet_box_count": 107,
+    "rank": 448
+  },
+  {
+    "concept": "Chuniphyes multidentata",
+    "fathomnet_box_count": 107,
+    "rank": 449
+  },
+  {
+    "concept": "Corallimorphus",
+    "fathomnet_box_count": 107,
+    "rank": 450
+  },
+  {
+    "concept": "Hydrolagus cf. trolli",
+    "fathomnet_box_count": 107,
+    "rank": 451
+  },
+  {
+    "concept": "Marrus claudanielis",
+    "fathomnet_box_count": 107,
+    "rank": 452
+  },
+  {
+    "concept": "Tiburonia granrojo",
+    "fathomnet_box_count": 107,
+    "rank": 453
+  },
+  {
+    "concept": "Halicreas",
+    "fathomnet_box_count": 104,
+    "rank": 454
+  },
+  {
+    "concept": "Psychropotes sp. 1",
+    "fathomnet_box_count": 104,
+    "rank": 455
+  },
+  {
+    "concept": "Antedonoidea sp. 1",
+    "fathomnet_box_count": 103,
+    "rank": 456
+  },
+  {
+    "concept": "Ciona intestinalis",
+    "fathomnet_box_count": 103,
+    "rank": 457
+  },
+  {
+    "concept": "Kephyes ovata",
+    "fathomnet_box_count": 103,
+    "rank": 458
+  },
+  {
+    "concept": "Acanthogorgia sp.",
+    "fathomnet_box_count": 102,
+    "rank": 459
+  },
+  {
+    "concept": "Enteroctopus dofleini",
+    "fathomnet_box_count": 102,
+    "rank": 460
+  },
+  {
+    "concept": "Hormathiidae sp. 1",
+    "fathomnet_box_count": 102,
+    "rank": 461
+  },
+  {
+    "concept": "Walteria sp.",
+    "fathomnet_box_count": 102,
+    "rank": 462
+  },
+  {
+    "concept": "Actinostoloidea",
+    "fathomnet_box_count": 101,
+    "rank": 463
+  },
+  {
+    "concept": "Plesionika",
+    "fathomnet_box_count": 101,
+    "rank": 464
+  },
+  {
+    "concept": "Poeobius",
+    "fathomnet_box_count": 101,
+    "rank": 465
+  },
+  {
+    "concept": "Cirripedia",
+    "fathomnet_box_count": 100,
+    "rank": 466
+  },
+  {
+    "concept": "Halitrephes maasi",
+    "fathomnet_box_count": 100,
+    "rank": 467
+  },
+  {
+    "concept": "Asteronyx longifissus",
+    "fathomnet_box_count": 99,
+    "rank": 468
+  },
+  {
+    "concept": "Bathochordaeus charon",
+    "fathomnet_box_count": 99,
+    "rank": 469
+  },
+  {
+    "concept": "Hydromedusae",
+    "fathomnet_box_count": 99,
+    "rank": 470
+  },
+  {
+    "concept": "Buccinum",
+    "fathomnet_box_count": 98,
+    "rank": 471
+  },
+  {
+    "concept": "Caulophacus",
+    "fathomnet_box_count": 98,
+    "rank": 472
+  },
+  {
+    "concept": "Culeolus barryi",
+    "fathomnet_box_count": 98,
+    "rank": 473
+  },
+  {
+    "concept": "Lycenchelys crotalinus",
+    "fathomnet_box_count": 98,
+    "rank": 474
+  },
+  {
+    "concept": "Luidia foliolata",
+    "fathomnet_box_count": 97,
+    "rank": 475
+  },
+  {
+    "concept": "Vogtia",
+    "fathomnet_box_count": 96,
+    "rank": 476
+  },
+  {
+    "concept": "Hyperiidae",
+    "fathomnet_box_count": 95,
+    "rank": 477
+  },
+  {
+    "concept": "Goniasteridae",
+    "fathomnet_box_count": 93,
+    "rank": 478
+  },
+  {
+    "concept": "Fungiacyathus (Bathyactis) marenzelleri",
+    "fathomnet_box_count": 90,
+    "rank": 479
+  },
+  {
+    "concept": "Pantachogon",
+    "fathomnet_box_count": 90,
+    "rank": 480
+  },
+  {
+    "concept": "Stichopathes sp.",
+    "fathomnet_box_count": 89,
+    "rank": 481
+  },
+  {
+    "concept": "Acanthogorgia",
+    "fathomnet_box_count": 88,
+    "rank": 482
+  },
+  {
+    "concept": "Paelopatides sp.",
+    "fathomnet_box_count": 88,
+    "rank": 483
+  },
+  {
+    "concept": "Pycnogonida",
+    "fathomnet_box_count": 88,
+    "rank": 484
+  },
+  {
+    "concept": "Trachipterus altivelis",
+    "fathomnet_box_count": 88,
+    "rank": 485
+  },
+  {
+    "concept": "Calyptogena magnifica",
+    "fathomnet_box_count": 87,
+    "rank": 486
+  },
+  {
+    "concept": "Cydippida",
+    "fathomnet_box_count": 87,
+    "rank": 487
+  },
+  {
+    "concept": "Tritonia tetraquetra",
+    "fathomnet_box_count": 86,
+    "rank": 488
+  },
+  {
+    "concept": "Crossaster",
+    "fathomnet_box_count": 85,
+    "rank": 489
+  },
+  {
+    "concept": "Copepoda",
+    "fathomnet_box_count": 84,
+    "rank": 490
+  },
+  {
+    "concept": "Marrus orthocanna",
+    "fathomnet_box_count": 84,
+    "rank": 491
+  },
+  {
+    "concept": "Oneirodes acanthias",
+    "fathomnet_box_count": 83,
+    "rank": 492
+  },
+  {
+    "concept": "Walteria",
+    "fathomnet_box_count": 83,
+    "rank": 493
+  },
+  {
+    "concept": "Bathyphellia australis",
+    "fathomnet_box_count": 82,
+    "rank": 494
+  },
+  {
+    "concept": "Bryozoa",
+    "fathomnet_box_count": 82,
+    "rank": 495
+  },
+  {
+    "concept": "Gymnothorax saxicola",
+    "fathomnet_box_count": 82,
+    "rank": 496
+  },
+  {
+    "concept": "Metallogorgia melanotrichos",
+    "fathomnet_box_count": 82,
+    "rank": 497
+  },
+  {
+    "concept": "Sebastomus complex",
+    "fathomnet_box_count": 82,
+    "rank": 498
+  },
+  {
+    "concept": "Mulloidichthys flavolineatus",
+    "fathomnet_box_count": 81,
+    "rank": 499
+  },
+  {
+    "concept": "Phyllospadix-Zostera detritus",
+    "fathomnet_box_count": 81,
+    "rank": 500
+  },
+  {
+    "concept": "Dendrophylliidae",
+    "fathomnet_box_count": 80,
+    "rank": 501
+  },
+  {
+    "concept": "Galiteuthis pacifica",
+    "fathomnet_box_count": 80,
+    "rank": 502
+  },
+  {
+    "concept": "Mobula alfredi",
+    "fathomnet_box_count": 80,
+    "rank": 503
+  },
+  {
+    "concept": "Stygiomedusa gigantea",
+    "fathomnet_box_count": 80,
+    "rank": 504
+  },
+  {
+    "concept": "Synodontidae",
+    "fathomnet_box_count": 80,
+    "rank": 505
+  },
+  {
+    "concept": "Chromis insolata",
+    "fathomnet_box_count": 79,
+    "rank": 506
+  },
+  {
+    "concept": "Glyphocrangon vicaria",
+    "fathomnet_box_count": 79,
+    "rank": 507
+  },
+  {
+    "concept": "Acanthurus leucopareius",
+    "fathomnet_box_count": 78,
+    "rank": 508
+  },
+  {
+    "concept": "Callistephanus simplex",
+    "fathomnet_box_count": 78,
+    "rank": 509
+  },
+  {
+    "concept": "Chaunacops coloratus",
+    "fathomnet_box_count": 78,
+    "rank": 510
+  },
+  {
+    "concept": "Fariometra parvula",
+    "fathomnet_box_count": 78,
+    "rank": 511
+  },
+  {
+    "concept": "Neolithodes diomedeae",
+    "fathomnet_box_count": 78,
+    "rank": 512
+  },
+  {
+    "concept": "Physophora hydrostatica",
+    "fathomnet_box_count": 78,
+    "rank": 513
+  },
+  {
+    "concept": "Protoptilum sp. 1",
+    "fathomnet_box_count": 78,
+    "rank": 514
+  },
+  {
+    "concept": "Synallactes",
+    "fathomnet_box_count": 78,
+    "rank": 515
+  },
+  {
+    "concept": "Acanthephyra",
+    "fathomnet_box_count": 76,
+    "rank": 516
+  },
+  {
+    "concept": "Farrea nr. occa erecta",
+    "fathomnet_box_count": 76,
+    "rank": 517
+  },
+  {
+    "concept": "Osedax frankpressi",
+    "fathomnet_box_count": 76,
+    "rank": 518
+  },
+  {
+    "concept": "Paradiopatra",
+    "fathomnet_box_count": 76,
+    "rank": 519
+  },
+  {
+    "concept": "Teuthoidea",
+    "fathomnet_box_count": 76,
+    "rank": 520
+  },
+  {
+    "concept": "Acanthascus (Rhabdocalyptus) sp.",
+    "fathomnet_box_count": 75,
+    "rank": 521
+  },
+  {
+    "concept": "Callistephanus kofoidi",
+    "fathomnet_box_count": 75,
+    "rank": 522
+  },
+  {
+    "concept": "Corolla",
+    "fathomnet_box_count": 75,
+    "rank": 523
+  },
+  {
+    "concept": "Pedicellasteridae",
+    "fathomnet_box_count": 75,
+    "rank": 524
+  },
+  {
+    "concept": "Uroptychus sp.",
+    "fathomnet_box_count": 75,
+    "rank": 525
+  },
+  {
+    "concept": "Hertwigia sp.",
+    "fathomnet_box_count": 74,
+    "rank": 526
+  },
+  {
+    "concept": "Pannychia sp. 1",
+    "fathomnet_box_count": 74,
+    "rank": 527
+  },
+  {
+    "concept": "Poralia sp.",
+    "fathomnet_box_count": 74,
+    "rank": 528
+  },
+  {
+    "concept": "Rosacea",
+    "fathomnet_box_count": 74,
+    "rank": 529
+  },
+  {
+    "concept": "Bolocera kensmithi",
+    "fathomnet_box_count": 73,
+    "rank": 530
+  },
+  {
+    "concept": "Erenna",
+    "fathomnet_box_count": 73,
+    "rank": 531
+  },
+  {
+    "concept": "Gonatus",
+    "fathomnet_box_count": 73,
+    "rank": 532
+  },
+  {
+    "concept": "Acanthamunnopsis milleri",
+    "fathomnet_box_count": 72,
+    "rank": 533
+  },
+  {
+    "concept": "CO2 Corral",
+    "fathomnet_box_count": 72,
+    "rank": 534
+  },
+  {
+    "concept": "Dermatolepis inermis",
+    "fathomnet_box_count": 71,
+    "rank": 535
+  },
+  {
+    "concept": "Sphaeronectes haddocki",
+    "fathomnet_box_count": 71,
+    "rank": 536
+  },
+  {
+    "concept": "Brachyura",
+    "fathomnet_box_count": 70,
+    "rank": 537
+  },
+  {
+    "concept": "Coryphaenoides armatus-yaquinae complex",
+    "fathomnet_box_count": 70,
+    "rank": 538
+  },
+  {
+    "concept": "Gonatopsis octopedatus",
+    "fathomnet_box_count": 70,
+    "rank": 539
+  },
+  {
+    "concept": "Hyalonema",
+    "fathomnet_box_count": 70,
+    "rank": 540
+  },
+  {
+    "concept": "Riftia pachyptila",
+    "fathomnet_box_count": 70,
+    "rank": 541
+  },
+  {
+    "concept": "Haliscera bigelowi",
+    "fathomnet_box_count": 69,
+    "rank": 542
+  },
+  {
+    "concept": "Leachia danae",
+    "fathomnet_box_count": 69,
+    "rank": 543
+  },
+  {
+    "concept": "Munidopsis kensmithi",
+    "fathomnet_box_count": 68,
+    "rank": 544
+  },
+  {
+    "concept": "Pedicellasteridae sp. 2",
+    "fathomnet_box_count": 68,
+    "rank": 545
+  },
+  {
+    "concept": "Poliopogon",
+    "fathomnet_box_count": 68,
+    "rank": 546
+  },
+  {
+    "concept": "Rossellidae",
+    "fathomnet_box_count": 68,
+    "rank": 547
+  },
+  {
+    "concept": "Lycenchelys sp.",
+    "fathomnet_box_count": 67,
+    "rank": 548
+  },
+  {
+    "concept": "Microstomus bathybius",
+    "fathomnet_box_count": 67,
+    "rank": 549
+  },
+  {
+    "concept": "Xanthichthys ringens",
+    "fathomnet_box_count": 67,
+    "rank": 550
+  },
+  {
+    "concept": "Zoarcidae",
+    "fathomnet_box_count": 67,
+    "rank": 551
+  },
+  {
+    "concept": "Aegina sp. 1",
+    "fathomnet_box_count": 66,
+    "rank": 552
+  },
+  {
+    "concept": "Helicocranchia",
+    "fathomnet_box_count": 66,
+    "rank": 553
+  },
+  {
+    "concept": "Hippasteria californica",
+    "fathomnet_box_count": 66,
+    "rank": 554
+  },
+  {
+    "concept": "Melanocetus",
+    "fathomnet_box_count": 66,
+    "rank": 555
+  },
+  {
+    "concept": "Ophidiidae",
+    "fathomnet_box_count": 66,
+    "rank": 556
+  },
+  {
+    "concept": "Paragorgia sp. 1",
+    "fathomnet_box_count": 66,
+    "rank": 557
+  },
+  {
+    "concept": "Vanhoeffenura pulchra",
+    "fathomnet_box_count": 66,
+    "rank": 558
+  },
+  {
+    "concept": "Corolla spectabilis",
+    "fathomnet_box_count": 65,
+    "rank": 559
+  },
+  {
+    "concept": "Thliptodon",
+    "fathomnet_box_count": 65,
+    "rank": 560
+  },
+  {
+    "concept": "Octopodidae",
+    "fathomnet_box_count": 64,
+    "rank": 561
+  },
+  {
+    "concept": "Parapagurus sp.",
+    "fathomnet_box_count": 64,
+    "rank": 562
+  },
+  {
+    "concept": "Amphianthus sp.",
+    "fathomnet_box_count": 63,
+    "rank": 563
+  },
+  {
+    "concept": "Octacnemidae sp. 1",
+    "fathomnet_box_count": 63,
+    "rank": 564
+  },
+  {
+    "concept": "Smithsonius dorothea",
+    "fathomnet_box_count": 63,
+    "rank": 565
+  },
+  {
+    "concept": "Hyalonema (Corynonema) populiferum",
+    "fathomnet_box_count": 62,
+    "rank": 566
+  },
+  {
+    "concept": "Lithodes couesi",
+    "fathomnet_box_count": 62,
+    "rank": 567
+  },
+  {
+    "concept": "Porites",
+    "fathomnet_box_count": 62,
+    "rank": 568
+  },
+  {
+    "concept": "Axoniderma kensmithi",
+    "fathomnet_box_count": 61,
+    "rank": 569
+  },
+  {
+    "concept": "Ceriantharia sp. 1",
+    "fathomnet_box_count": 61,
+    "rank": 570
+  },
+  {
+    "concept": "Coryphaenoides armatus-leptolepis-yaquinae complex",
+    "fathomnet_box_count": 61,
+    "rank": 571
+  },
+  {
+    "concept": "Glyptocephalus zachirus",
+    "fathomnet_box_count": 61,
+    "rank": 572
+  },
+  {
+    "concept": "Holothuroidea sp. 3",
+    "fathomnet_box_count": 61,
+    "rank": 573
+  },
+  {
+    "concept": "Sebastes aurora",
+    "fathomnet_box_count": 61,
+    "rank": 574
+  },
+  {
+    "concept": "Abraliopsis",
+    "fathomnet_box_count": 60,
+    "rank": 575
+  },
+  {
+    "concept": "Boreomysis",
+    "fathomnet_box_count": 60,
+    "rank": 576
+  },
+  {
+    "concept": "Clausophyes",
+    "fathomnet_box_count": 60,
+    "rank": 577
+  },
+  {
+    "concept": "Physiculus nematopus-rastrelliger complex",
+    "fathomnet_box_count": 60,
+    "rank": 578
+  },
+  {
+    "concept": "Corallium",
+    "fathomnet_box_count": 59,
+    "rank": 579
+  },
+  {
+    "concept": "Crossota millsae",
+    "fathomnet_box_count": 59,
+    "rank": 580
+  },
+  {
+    "concept": "Paelopatides",
+    "fathomnet_box_count": 59,
+    "rank": 581
+  },
+  {
+    "concept": "Staurocalyptus solidus",
+    "fathomnet_box_count": 59,
+    "rank": 582
+  },
+  {
+    "concept": "Acesta",
+    "fathomnet_box_count": 58,
+    "rank": 583
+  },
+  {
+    "concept": "Colossendeidae",
+    "fathomnet_box_count": 58,
+    "rank": 584
+  },
+  {
+    "concept": "Lycodapus fierasfer",
+    "fathomnet_box_count": 58,
+    "rank": 585
+  },
+  {
+    "concept": "Alcyonacea",
+    "fathomnet_box_count": 57,
+    "rank": 586
+  },
+  {
+    "concept": "Ascidiacea",
+    "fathomnet_box_count": 57,
+    "rank": 587
+  },
+  {
+    "concept": "Clione limacina",
+    "fathomnet_box_count": 57,
+    "rank": 588
+  },
+  {
+    "concept": "Liparidae",
+    "fathomnet_box_count": 57,
+    "rank": 589
+  },
+  {
+    "concept": "Scopelarchus",
+    "fathomnet_box_count": 57,
+    "rank": 590
+  },
+  {
+    "concept": "Harriotta raleighana",
+    "fathomnet_box_count": 56,
+    "rank": 591
+  },
+  {
+    "concept": "Radiozoa",
+    "fathomnet_box_count": 56,
+    "rank": 592
+  },
+  {
+    "concept": "Solaster hypothrissus",
+    "fathomnet_box_count": 56,
+    "rank": 593
+  },
+  {
+    "concept": "Bathypathes",
+    "fathomnet_box_count": 55,
+    "rank": 594
+  },
+  {
+    "concept": "Beroe gracilis",
+    "fathomnet_box_count": 55,
+    "rank": 595
+  },
+  {
+    "concept": "Brachiopods",
+    "fathomnet_box_count": 55,
+    "rank": 596
+  },
+  {
+    "concept": "Eualus macrophthalmus",
+    "fathomnet_box_count": 55,
+    "rank": 597
+  },
+  {
+    "concept": "Hypoplectrus",
+    "fathomnet_box_count": 55,
+    "rank": 598
+  },
+  {
+    "concept": "Sebastes jordani",
+    "fathomnet_box_count": 55,
+    "rank": 599
+  },
+  {
+    "concept": "Anotopterus nikparini",
+    "fathomnet_box_count": 54,
+    "rank": 600
+  },
+  {
+    "concept": "Bathybembix",
+    "fathomnet_box_count": 54,
+    "rank": 601
+  },
+  {
+    "concept": "Decapterus",
+    "fathomnet_box_count": 54,
+    "rank": 602
+  },
+  {
+    "concept": "Gorgonocephalus eucnemis",
+    "fathomnet_box_count": 54,
+    "rank": 603
+  },
+  {
+    "concept": "Liponema",
+    "fathomnet_box_count": 54,
+    "rank": 604
+  },
+  {
+    "concept": "Paralomis verrilli",
+    "fathomnet_box_count": 54,
+    "rank": 605
+  },
+  {
+    "concept": "Buccinidae",
+    "fathomnet_box_count": 53,
+    "rank": 606
+  },
+  {
+    "concept": "Buccinoidea",
+    "fathomnet_box_count": 53,
+    "rank": 607
+  },
+  {
+    "concept": "Calamus",
+    "fathomnet_box_count": 53,
+    "rank": 608
+  },
+  {
+    "concept": "Echinoidea",
+    "fathomnet_box_count": 53,
+    "rank": 609
+  },
+  {
+    "concept": "Parmaturus xaniurus",
+    "fathomnet_box_count": 53,
+    "rank": 610
+  },
+  {
+    "concept": "Umbellula lindahli",
+    "fathomnet_box_count": 53,
+    "rank": 611
+  },
+  {
+    "concept": "Sebastolobus alascanus",
+    "fathomnet_box_count": 52,
+    "rank": 612
+  },
+  {
+    "concept": "Tjalfiella",
+    "fathomnet_box_count": 52,
+    "rank": 613
+  },
+  {
+    "concept": "Heteropolypus",
+    "fathomnet_box_count": 51,
+    "rank": 614
+  },
+  {
+    "concept": "Nanomia",
+    "fathomnet_box_count": 51,
+    "rank": 615
+  },
+  {
+    "concept": "Plesionika sp. A",
+    "fathomnet_box_count": 51,
+    "rank": 616
+  },
+  {
+    "concept": "Sclerothamnus",
+    "fathomnet_box_count": 51,
+    "rank": 617
+  },
+  {
+    "concept": "Jasonisis sp.",
+    "fathomnet_box_count": 50,
+    "rank": 618
+  },
+  {
+    "concept": "Notobranchaea macdonaldi",
+    "fathomnet_box_count": 50,
+    "rank": 619
+  },
+  {
+    "concept": "Ophiocreas oedipus",
+    "fathomnet_box_count": 50,
+    "rank": 620
+  },
+  {
+    "concept": "Paragorgia yutlinux",
+    "fathomnet_box_count": 50,
+    "rank": 621
+  },
+  {
+    "concept": "Psolidae",
+    "fathomnet_box_count": 50,
+    "rank": 622
+  }
+]

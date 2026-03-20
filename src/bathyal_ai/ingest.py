@@ -260,12 +260,16 @@ def ingest_fathomnet(config: FathomNetIngestConfig) -> dict[str, object]:
                 needs_download = not cache_path.exists()
                 image_path = download_file(image_record.url, cache_path)
                 if needs_download:
-                    time.sleep(0.2)
+                    pass
 
-                with Image.open(image_path) as source_image:
+                try:
+                    source_image = Image.open(image_path)
                     rgb_image = source_image.convert("RGB")
                     image_width, image_height = rgb_image.size
+                except (OSError, SyntaxError, Exception):
+                    continue
 
+                with source_image:
                     for box in image_record.boundingBoxes:
                         if concept_written >= remaining:
                             break

@@ -42,7 +42,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--lora-rank", type=int, default=None, help="LoRA rank (default: 8, or inherited from --resume-from).")
     parser.add_argument("--lora-alpha", type=float, default=None, help="LoRA alpha scaling factor (default: 16.0, or inherited from --resume-from).")
     parser.add_argument("--lora-target-blocks", type=parse_int_list, default=None, help="Comma-separated block indices for LoRA (default: all).")
-    parser.add_argument("--lora-targets", type=parse_str_list, default=None, help="Comma-separated attention projections to adapt: q,k,v,o.")
+    parser.add_argument("--lora-targets", type=parse_str_list, default=None, help="Comma-separated projections to adapt: q,k,v,o,mlp_fc,mlp_proj.")
+    parser.add_argument("--lora-dropout", type=float, default=None, help="LoRA dropout rate (default: 0.0, or inherited from --resume-from).")
     parser.add_argument("--lora-lr", type=float, default=1e-4, help="Learning rate for LoRA parameters.")
     parser.add_argument("--head-lr", type=float, default=5e-3, help="Learning rate for classifier head.")
     parser.add_argument("--weight-decay", type=float, default=1e-4, help="Weight decay.")
@@ -93,6 +94,8 @@ def _resolve_lora_defaults(args: argparse.Namespace) -> None:
     if args.lora_targets is None:
         prior_targets = prior_lora.get("targets")
         args.lora_targets = prior_targets if prior_targets is not None else ["q", "k", "v", "o"]
+    if args.lora_dropout is None:
+        args.lora_dropout = float(prior_lora.get("dropout", 0.0))
 
 
 def main() -> None:
@@ -119,6 +122,7 @@ def main() -> None:
         lora_alpha=args.lora_alpha,
         lora_target_blocks=args.lora_target_blocks,
         lora_targets=lora_targets,
+        lora_dropout=args.lora_dropout,
         lora_lr=args.lora_lr,
         head_lr=args.head_lr,
         weight_decay=args.weight_decay,

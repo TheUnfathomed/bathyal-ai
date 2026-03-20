@@ -9,7 +9,16 @@
       "Bash(uv lock:*)",
       "Bash(uv sync:*)",
       "Bash(uv cache:*)",
-      "Bash(pip cache:*)"
+      "Bash(pip cache:*)",
+      "Bash(find /c/Users/ogace/unfathomed/datasets/fathomnet_v3/ -type f \\\\\\(-name *.jpg -o -name *.png \\\\\\))",
+      "Bash(find /d/bathyal_training_data -type f \\\\\\(-name *.jpg -o -name *.png \\\\\\))",
+      "Bash(awk '{print NF}' scripts/concepts_full.txt)",
+      "Bash(awk 'NF==1' scripts/concepts_full.txt)",
+      "Bash(mkdir -p /d/bathyal_training_data_inat_s3)",
+      "Bash(aws s3:*)",
+      "Bash(curl:*)",
+      "Bash(gunzip -k /d/bathyal_training_data_inat_s3/taxa.csv.gz)",
+      "Bash(tar czf:*)"
     ]
   }
 }

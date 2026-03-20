@@ -34,6 +34,7 @@ class FinetuneConfig:
     lora_alpha: float = 16.0
     lora_target_blocks: list[int] | None = None
     lora_targets: list[str] = field(default_factory=lambda: ["q", "k", "v", "o"])
+    lora_dropout: float = 0.0
     lora_lr: float = 1e-4
     head_lr: float = 5e-3
     weight_decay: float = 1e-4
@@ -281,6 +282,7 @@ def run_finetune(config: FinetuneConfig) -> dict[str, object]:
         alpha=config.lora_alpha,
         target_blocks=config.lora_target_blocks,
         targets=config.lora_targets,
+        dropout=config.lora_dropout,
     )
     lora_params = apply_lora_to_vision_encoder(model, lora_config)
     lora_param_count = sum(p.numel() for p in lora_params)
@@ -507,6 +509,7 @@ def run_finetune(config: FinetuneConfig) -> dict[str, object]:
         "alpha": config.lora_alpha,
         "target_blocks": config.lora_target_blocks,
         "targets": config.lora_targets,
+        "dropout": config.lora_dropout,
     }
 
     merge_lora_weights(model)
