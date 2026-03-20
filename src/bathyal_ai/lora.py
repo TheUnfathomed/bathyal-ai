@@ -38,8 +38,9 @@ class LoraLinear(nn.Module):
             self.base.bias.requires_grad_(False)
 
         self.scaling = alpha / rank
-        self.lora_a = nn.Parameter(torch.empty(rank, base.in_features))
-        self.lora_b = nn.Parameter(torch.zeros(base.out_features, rank))
+        device = base.weight.device
+        self.lora_a = nn.Parameter(torch.empty(rank, base.in_features, device=device))
+        self.lora_b = nn.Parameter(torch.zeros(base.out_features, rank, device=device))
         nn.init.kaiming_uniform_(self.lora_a, a=math.sqrt(5))
         self.lora_dropout = nn.Dropout(p=dropout) if dropout > 0.0 else nn.Identity()
 
