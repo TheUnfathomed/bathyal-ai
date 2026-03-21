@@ -1,4 +1,4 @@
-﻿"""BioCLIP embedding utilities with optional on-disk caching."""
+"""BioCLIP embedding utilities with optional on-disk caching."""
 
 from __future__ import annotations
 
@@ -11,6 +11,7 @@ import open_clip
 import torch
 import torch.nn.functional as F
 from PIL import Image
+from torch.utils.data import DataLoader, Dataset
 
 from .data import LabeledExample, fingerprint_examples
 
@@ -29,11 +30,25 @@ class EmbeddingSet:
         return int(self.embeddings.shape[1])
 
 
+class _PathDataset(Dataset):
+    def __init__(self, paths: Sequence[Path], preprocess) -> None:
+        self.paths = list(paths)
+        self.preprocess = preprocess
+
+    def __len__(self) -> int:
+        return len(self.paths)
+
+    def __getitem__(self, idx: int) -> torch.Tensor:
+        with Image.open(self.paths[idx]) as img:
+            return self.preprocess(img.convert("RGB"))
+
+
 class BioClipEmbedder:
-    def __init__(self, model_name: str, device: str = "auto", batch_size: int = 16) -> None:
+    def __init__(self, model_name: str, device: str = "auto", batch_size: int = 16, num_workers: int = 8) -> None:
         self.model_name = model_name
         self.device = self._resolve_device(device)
         self.batch_size = batch_size
+        self.num_workers = num_workers
         self.model, self.preprocess = self._load_model()
 
     @staticmethod
@@ -55,6 +70,7 @@ class BioClipEmbedder:
         instance.model_name = model_name
         instance.device = device
         instance.batch_size = batch_size
+        instance.num_workers = 8
         instance.model = model
         instance.preprocess = preprocess
         return instance
@@ -83,11 +99,26 @@ class BioClipEmbedder:
         return np.concatenate(all_embeddings, axis=0)
 
     def embed_paths(self, paths: Sequence[Path]) -> np.ndarray:
-        loaded_images: list[Image.Image] = []
-        for path in paths:
-            with Image.open(path) as image:
-                loaded_images.append(image.convert("RGB"))
-        return self.embed_images(loaded_images)
+        if not paths:
+            raise ValueError("No paths provided for embedding")
+
+        dataset = _PathDataset(paths, self.preprocess)
+        loader = DataLoader(
+            dataset,
+            batch_size=self.batch_size,
+            num_workers=self.num_workers,
+            pin_memory=self.device != "cpu",
+            persistent_workers=self.num_workers > 0,
+        )
+
+        all_embeddings: list[np.ndarray] = []
+        for batch_tensor in loader:
+            batch_tensor = batch_tensor.to(self.device, non_blocking=True)
+            with torch.inference_mode():
+                embeddings = self.model.encode_image(batch_tensor)
+                embeddings = F.normalize(embeddings, dim=-1)
+            all_embeddings.append(embeddings.cpu().numpy().astype(np.float32))
+        return np.concatenate(all_embeddings, axis=0)
 
     def embed_examples(
         self,
