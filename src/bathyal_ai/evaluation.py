@@ -35,8 +35,17 @@ def run_evaluation(config: EvaluationConfig) -> dict[str, object]:
         embed_batch_size=config.batch_size,
     )
 
-    known_dataset = index_labeled_dataset(config.source)
-    ensure_labels_subset(known_dataset, classifier.labels, "Evaluation dataset")
+    raw_dataset = index_labeled_dataset(config.source)
+    unknown_eval_labels = sorted(set(raw_dataset.labels) - set(classifier.labels))
+    if unknown_eval_labels:
+        print(f"Filtering {len(unknown_eval_labels)} eval labels not in classifier")
+        from .data import IndexedDataset
+        known_dataset = IndexedDataset(
+            root=raw_dataset.root,
+            examples=[ex for ex in raw_dataset.examples if ex.label in set(classifier.labels)],
+        )
+    else:
+        known_dataset = raw_dataset
 
     known_targets = [example.label for example in known_dataset.examples]
     known_target_indices = np.asarray([classifier.label_to_index[label] for label in known_targets], dtype=np.int64)
